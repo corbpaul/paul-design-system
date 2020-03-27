@@ -5,5 +5,5 @@ import { withTreatTheme } from "./storybook-addon-treat-theme";
 
 addDecorator(withTreatTheme);
 addParameters({
-  themes: { themes }
+  themes: { themes },
 });

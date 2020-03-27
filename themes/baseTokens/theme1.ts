@@ -1,12 +1,12 @@
 import merge from "lodash/merge";
 import { DeepPartial } from "utility-types";
-import { TreatTokens } from "../makeTheme";
+import { ITreatTokens } from "../makeTheme";
 
 interface IMakeTokensOptions {
   name: string;
   displayName: string;
   brand: string;
-  tokenOverrides?: DeepPartial<TreatTokens>;
+  tokenOverrides?: DeepPartial<ITreatTokens>;
 }
 
 export const makeTokens = ({
@@ -14,8 +14,8 @@ export const makeTokens = ({
   displayName,
   brand,
   tokenOverrides = {},
-}: IMakeTokensOptions): TreatTokens => {
-  const tokens: TreatTokens = {
+}: IMakeTokensOptions): ITreatTokens => {
+  const tokens: ITreatTokens = {
     name,
     displayName,
     color: {
@@ -34,6 +34,7 @@ export const makeTokens = ({
         medium: 600,
         strong: 700,
       },
+      webFont: null,
     },
   };
 

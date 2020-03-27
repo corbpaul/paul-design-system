@@ -1,3 +1,4 @@
+import { values } from "lodash";
 import { createTheme } from "treat";
 
 type FontSize = "xsmall" | "small" | "standard" | "large";
@@ -13,6 +14,7 @@ export interface ITreatTokens {
     fontFamily: string;
     fontSize: Record<FontSize, number>;
     fontWeight: Record<FontWeight, number>;
+    webFont: string | null;
   };
 }
 
@@ -20,7 +22,19 @@ const makeRuntimeTokens = (tokens: TreatTheme) => ({
   name: tokens.name,
   displayName: tokens.displayName,
   color: tokens.color,
+  webFonts: makeWebFonts(tokens),
 });
+
+const makeWebFonts = (tokens: TreatTheme) => {
+  const font = tokens.typography.webFont;
+
+  if (!font) {
+    return [];
+  }
+
+  const weights = values(tokens.typography.fontWeight);
+  return [{ font, weights }];
+};
 
 const decorateTokens = (treatTokens: ITreatTokens) => {
   const { color, ...restTokens } = treatTokens;

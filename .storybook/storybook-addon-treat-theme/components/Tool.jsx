@@ -5,7 +5,7 @@ import {
   Icons,
   IconButton,
   WithTooltip,
-  TooltipLinkList
+  TooltipLinkList,
 } from "@storybook/components";
 import { styled } from "@storybook/theming";
 
@@ -14,23 +14,23 @@ import { ColorIcon } from "./ColorIcon";
 
 const IconButtonWithLabel = styled(IconButton)(() => ({
   display: "inline-flex",
-  alignItems: "center"
+  alignItems: "center",
 }));
 
 const IconButtonLabel = styled.div(({ theme }) => ({
   fontSize: theme.typography.size.s2 - 1,
-  marginLeft: 10
+  marginLeft: 10,
 }));
 
 const createThemeSelectorItem = memoize(1000)(
-  (id, displayName, treatTheme, color, hasSwatch, change) => ({
+  (id, displayName, treatTheme, brand, webFonts, hasSwatch, change) => ({
     id: id || displayName,
     title: displayName,
     onClick: () => {
-      change({ selected: treatTheme, displayName });
+      change({ selected: treatTheme, displayName, webFonts });
     },
-    right: hasSwatch ? <ColorIcon background={color.brand} /> : undefined
-  })
+    right: hasSwatch ? <ColorIcon background={brand} /> : undefined,
+  }),
 );
 
 const getDisplayedItems = memoize(10)((list, change) => {
@@ -38,16 +38,17 @@ const getDisplayedItems = memoize(10)((list, change) => {
 
   if (list.length) {
     availableThemeSelectorItems = [
-      ...list.map(({ treatTheme, displayName, color }) =>
+      ...list.map(({ treatTheme, displayName, color: { brand }, webFonts }) =>
         createThemeSelectorItem(
           null,
           displayName,
           treatTheme,
-          color,
+          brand,
+          webFonts,
           true,
-          change
-        )
-      )
+          change,
+        ),
+      ),
     ];
   }
 
@@ -64,8 +65,8 @@ export const Tool = ({ channel }) => {
     }
   }, [themes]);
 
-  function change({ selected, displayName }) {
-    channel.emit(EVENTS.CHANGE, selected);
+  function change({ selected, displayName, webFonts }) {
+    channel.emit(EVENTS.CHANGE, selected, webFonts);
     setSelectedTheme(displayName);
   }
 
@@ -78,7 +79,7 @@ export const Tool = ({ channel }) => {
         trigger="click"
         tooltip={({ onHide }) => (
           <TooltipLinkList
-            links={getDisplayedItems(itemList, i => {
+            links={getDisplayedItems(itemList, (i) => {
               change(i);
               onHide();
             })}

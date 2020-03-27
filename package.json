@@ -10,7 +10,8 @@
     "storybook-addon-treat-theme": "/Users/paulcorbett/Sites/storybook-addon-treat-theme",
     "treat": "^1.2.4",
     "ts-loader": "^6.2.2",
-    "utility-types": "^3.10.0"
+    "utility-types": "^3.10.0",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
