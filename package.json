@@ -1,0 +1,32 @@
+{
+  "name": "paul-design-system",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@storybook/preset-typescript": "^2.1.0",
+    "fork-ts-checker-webpack-plugin": "^4.1.1",
+    "react-treat": "^1.2.4",
+    "storybook-addon-treat-theme": "/Users/paulcorbett/Sites/storybook-addon-treat-theme",
+    "treat": "^1.2.4",
+    "ts-loader": "^6.2.2",
+    "utility-types": "^3.10.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@storybook/addon-actions": "^5.3.17",
+    "@storybook/addon-links": "^5.3.17",
+    "@storybook/addons": "^5.3.17",
+    "@storybook/react": "^5.3.17",
+    "@types/classnames": "^2.2.10",
+    "@types/events": "^3.0.0",
+    "@types/lodash": "^4.14.149",
+    "@types/react": "^16.9.25",
+    "babel-loader": "^8.1.0",
+    "typescript": "^3.8.3"
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  }
+}
