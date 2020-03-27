@@ -6,7 +6,7 @@ export default makeTokens({
   brand: "#005aeb",
   tokenOverrides: {
     typography: {
-      fontFamily: "Georgia, serif"
-    }
-  }
+      fontFamily: "Georgia, serif",
+    },
+  },
 });

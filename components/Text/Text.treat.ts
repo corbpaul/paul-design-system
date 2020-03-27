@@ -6,13 +6,13 @@ import { mapToStyleProperty } from "./utils";
 // }));
 
 export const fontFamily = style(({ typography }) => ({
-  fontFamily: typography.fontFamily
+  fontFamily: typography.fontFamily,
 }));
 
 export const fontSize = styleMap(({ typography }) =>
-  mapToStyleProperty(typography.fontSize, "fontSize")
+  mapToStyleProperty(typography.fontSize, "fontSize"),
 );
 
 export const fontWeight = styleMap(({ typography }) =>
-  mapToStyleProperty(typography.fontWeight, "fontWeight")
+  mapToStyleProperty(typography.fontWeight, "fontWeight"),
 );

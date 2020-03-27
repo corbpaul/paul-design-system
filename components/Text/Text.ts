@@ -1,18 +1,18 @@
 import { createElement, ReactNode } from "react";
 
-import { useTextStyles, UseTextProps } from "./useTextStyles";
+import { IUseTextProps, useTextStyles } from "./useTextStyles";
 
-export interface TextProps {
+export interface ITextProps {
   children?: ReactNode;
-  size?: UseTextProps["size"];
-  weight?: UseTextProps["weight"];
+  size?: IUseTextProps["size"];
+  weight?: IUseTextProps["weight"];
 }
 
-export const Text = ({ children, size, weight }: TextProps) => {
+export const Text = ({ children, size, weight }: ITextProps) => {
   const textStyles = useTextStyles({ size, weight });
 
   return createElement("span", {
+    children,
     className: textStyles,
-    children
   });
 };

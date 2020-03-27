@@ -3,7 +3,7 @@ import { createTheme } from "treat";
 type FontSize = "xsmall" | "small" | "standard" | "large";
 type FontWeight = "regular" | "medium" | "strong";
 
-export interface TreatTokens {
+export interface ITreatTokens {
   name: string;
   displayName: string;
   color: {
@@ -19,30 +19,30 @@ export interface TreatTokens {
 const makeRuntimeTokens = (tokens: TreatTheme) => ({
   name: tokens.name,
   displayName: tokens.displayName,
-  color: tokens.color
+  color: tokens.color,
 });
 
-const decorateTokens = (treatTokens: TreatTokens) => {
+const decorateTokens = (treatTokens: ITreatTokens) => {
   const { color, ...restTokens } = treatTokens;
 
   const decoratedTokens = {
     color: {
-      ...color
+      ...color,
     },
-    ...restTokens
+    ...restTokens,
   };
 
   return {
-    ...decoratedTokens
+    ...decoratedTokens,
   };
 };
 
-export function makeTheme(treatTokens: TreatTokens) {
+export function makeTheme(treatTokens: ITreatTokens) {
   const decoratedTokens = decorateTokens(treatTokens);
 
   return {
     treatTheme: createTheme(decoratedTokens),
-    ...makeRuntimeTokens(decoratedTokens)
+    ...makeRuntimeTokens(decoratedTokens),
   };
 }
 

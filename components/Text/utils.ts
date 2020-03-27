@@ -1,6 +1,6 @@
-import mapValues from 'lodash/mapValues';
-import { Style } from 'treat';
-import { Properties } from 'csstype';
+import { Properties } from "csstype";
+import mapValues from "lodash/mapValues";
+import { Style } from "treat";
 
 export const mapToStyleProperty = <
   Key extends string | number,
