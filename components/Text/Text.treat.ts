@@ -1,5 +1,5 @@
 import { style, styleMap } from "treat";
-import { mapToStyleProperty } from "./utils";
+import { mapToStyleProperty } from "../../utils/utils";
 
 // export const color = style(theme => ({
 //   color: theme.brand
