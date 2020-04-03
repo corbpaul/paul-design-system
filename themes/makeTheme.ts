@@ -10,6 +10,11 @@ export interface ITreatTokens {
   color: {
     brand: string;
   };
+  space: {
+    small: number;
+    standard: number;
+    large: number;
+  };
   typography: {
     fontFamily: string;
     fontSize: Record<FontSize, number>;

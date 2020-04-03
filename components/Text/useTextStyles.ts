@@ -3,7 +3,7 @@ import { useStyles } from "react-treat";
 
 import * as styleRefs from "./Text.treat";
 
-export interface IUseTextProps {
+export interface IUseTextStyleProps {
   size?: keyof typeof styleRefs.fontSize;
   weight?: keyof typeof styleRefs.fontWeight;
 }
@@ -11,7 +11,7 @@ export interface IUseTextProps {
 export const useTextStyles = ({
   size = "standard",
   weight = "regular",
-}: IUseTextProps) => {
+}: IUseTextStyleProps) => {
   const styles = useStyles(styleRefs);
 
   return classnames(

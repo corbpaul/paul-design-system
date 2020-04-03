@@ -21,6 +21,11 @@ export const makeTokens = ({
     color: {
       brand,
     },
+    space: {
+      small: 8,
+      standard: 16,
+      large: 24,
+    },
     typography: {
       fontFamily: "Arial",
       fontSize: {
