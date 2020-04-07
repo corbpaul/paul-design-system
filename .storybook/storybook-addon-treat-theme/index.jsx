@@ -45,3 +45,7 @@ export const withTreatTheme = makeDecorator({
     return <TreatProvider theme={currentTheme}>{story}</TreatProvider>;
   },
 });
+
+if (module && module.hot && module.hot.decline) {
+  module.hot.decline();
+}

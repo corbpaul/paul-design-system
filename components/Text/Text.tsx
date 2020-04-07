@@ -18,7 +18,7 @@ export const Text = ({
   const textStyles = useTextStyles({ size, weight });
 
   return (
-    <Box className={textStyles} component={component} margin="standard">
+    <Box className={textStyles} component={component}>
       {children}
     </Box>
   );

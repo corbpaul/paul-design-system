@@ -14,4 +14,14 @@ const spaceMapToCss = (theme: Theme, cssPropertyName: keyof Properties) => {
 
 export const margin = {
   top: styleMap((theme) => spaceMapToCss(theme, "marginTop")),
+  right: styleMap((theme) => spaceMapToCss(theme, "marginRight")),
+  bottom: styleMap((theme) => spaceMapToCss(theme, "marginBottom")),
+  left: styleMap((theme) => spaceMapToCss(theme, "marginLeft")),
+};
+
+export const padding = {
+  top: styleMap((theme) => spaceMapToCss(theme, "paddingTop")),
+  right: styleMap((theme) => spaceMapToCss(theme, "paddingRight")),
+  bottom: styleMap((theme) => spaceMapToCss(theme, "paddingBottom")),
+  left: styleMap((theme) => spaceMapToCss(theme, "paddingLeft")),
 };

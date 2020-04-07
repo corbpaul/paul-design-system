@@ -13,9 +13,36 @@ export const Box = ({
   component = "div",
   margin,
   marginTop,
+  marginRight,
+  marginBottom,
+  marginLeft,
+  marginX,
   marginY,
+  padding,
+  paddingTop,
+  paddingRight,
+  paddingBottom,
+  paddingLeft,
+  paddingX,
+  paddingY,
   ...restProps
 }: IBoxProps) => {
-  const boxStyles = useBoxStyles({ className, margin, marginTop, marginY });
+  const boxStyles = useBoxStyles({
+    className,
+    margin,
+    marginTop,
+    marginRight,
+    marginBottom,
+    marginLeft,
+    marginX,
+    marginY,
+    padding,
+    paddingTop,
+    paddingRight,
+    paddingBottom,
+    paddingLeft,
+    paddingX,
+    paddingY,
+  });
   return createElement(component, { className: boxStyles, ...restProps });
 };
