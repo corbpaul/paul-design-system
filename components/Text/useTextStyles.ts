@@ -4,20 +4,51 @@ import { useStyles } from "react-treat";
 import * as styleRefs from "./Text.treat";
 
 export interface IUseTextStylesProps {
-  size?: keyof typeof styleRefs.fontSize;
+  baseline: boolean;
+  color?: keyof typeof styleRefs.color;
+  size?: keyof typeof styleRefs.text;
   weight?: keyof typeof styleRefs.fontWeight;
 }
 
 export const useTextStyles = ({
+  baseline,
+  color = "neutral",
   size = "standard",
   weight = "regular",
 }: IUseTextStylesProps) => {
   const styles = useStyles(styleRefs);
 
   return classnames(
-    // styles.color,
+    styles.color[color],
     styles.fontFamily,
-    styles.fontSize[size],
+    styles.text[size].base,
     styles.fontWeight[weight],
+    baseline ? styles.text[size].baseline : null,
+    baseline ? styles.text[size].cropFirstLine : null,
+  );
+};
+
+export type HeadingLevel = keyof typeof styleRefs.heading;
+export type HeadingWeight = "regular" | "weak";
+
+interface IUseHeadingStyleProps {
+  baseline: boolean;
+  level: HeadingLevel;
+  weight?: HeadingWeight;
+}
+
+export const useHeadingStyles = ({
+  baseline,
+  level,
+  weight = "regular",
+}: IUseHeadingStyleProps) => {
+  const styles = useStyles(styleRefs);
+
+  return classnames(
+    styles.fontFamily,
+    styles.heading[level].base,
+    styles.headingWeight[weight],
+    baseline ? styles.heading[level].baseline : null,
+    baseline ? styles.heading[level].cropFirstLine : null,
   );
 };

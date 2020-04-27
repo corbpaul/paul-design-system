@@ -9,8 +9,10 @@ export interface IBoxProps
 }
 
 export const Box = ({
+  background,
   className,
   component = "div",
+  display,
   margin,
   marginTop,
   marginRight,
@@ -28,7 +30,10 @@ export const Box = ({
   ...restProps
 }: IBoxProps) => {
   const boxStyles = useBoxStyles({
+    background,
     className,
+    component,
+    display,
     margin,
     marginTop,
     marginRight,

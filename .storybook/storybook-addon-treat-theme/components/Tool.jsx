@@ -23,11 +23,20 @@ const IconButtonLabel = styled.div(({ theme }) => ({
 }));
 
 const createThemeSelectorItem = memoize(1000)(
-  (id, displayName, treatTheme, brand, webFonts, hasSwatch, change) => ({
+  (
+    id,
+    displayName,
+    treatTheme,
+    background,
+    brand,
+    webFonts,
+    hasSwatch,
+    change,
+  ) => ({
     id: id || displayName,
     title: displayName,
     onClick: () => {
-      change({ selected: treatTheme, displayName, webFonts });
+      change({ selected: treatTheme, displayName, webFonts, bg: background });
     },
     right: hasSwatch ? <ColorIcon background={brand} /> : undefined,
   }),
@@ -38,16 +47,18 @@ const getDisplayedItems = memoize(10)((list, change) => {
 
   if (list.length) {
     availableThemeSelectorItems = [
-      ...list.map(({ treatTheme, displayName, color: { brand }, webFonts }) =>
-        createThemeSelectorItem(
-          null,
-          displayName,
-          treatTheme,
-          brand,
-          webFonts,
-          true,
-          change,
-        ),
+      ...list.map(
+        ({ treatTheme, displayName, background, color: { brand }, webFonts }) =>
+          createThemeSelectorItem(
+            null,
+            displayName,
+            treatTheme,
+            background,
+            brand,
+            webFonts,
+            true,
+            change,
+          ),
       ),
     ];
   }
@@ -65,8 +76,8 @@ export const Tool = ({ channel }) => {
     }
   }, [themes]);
 
-  function change({ selected, displayName, webFonts }) {
-    channel.emit(EVENTS.CHANGE, selected, webFonts);
+  function change({ selected, displayName, webFonts, bg }) {
+    channel.emit(EVENTS.CHANGE, selected, webFonts, bg);
     setSelectedTheme(displayName);
   }
 

@@ -1,5 +1,5 @@
 import { Properties } from "csstype";
-import mapValues from "lodash/mapValues";
+import { mapValues } from "lodash";
 import { Style } from "treat";
 
 export const mapToStyleProperty = <

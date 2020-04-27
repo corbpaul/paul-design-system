@@ -1,0 +1,3 @@
+- Box reponsive styles
+- Heading styles
+- move to typography component

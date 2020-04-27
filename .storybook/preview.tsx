@@ -1,5 +1,7 @@
 import { addDecorator, addParameters } from "@storybook/react";
 
+import "../reset";
+
 import * as themes from "../themes";
 import { withTreatTheme } from "./storybook-addon-treat-theme";
 

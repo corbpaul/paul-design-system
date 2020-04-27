@@ -1,3 +1,4 @@
+/* tslint:disable */
 declare module "treat/theme" {
   type TreatTheme = import("./makeTheme").TreatTheme;
 

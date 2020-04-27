@@ -1,4 +1,5 @@
 import { Properties } from "csstype";
+import { omit } from "lodash";
 import { styleMap } from "treat";
 import { Theme } from "treat/theme";
 import { mapToStyleProperty } from "../../utils/utils";
@@ -11,6 +12,10 @@ const spaceMapToCss = (theme: Theme, cssPropertyName: keyof Properties) => {
 
   return mapToStyleProperty(spaces, cssPropertyName);
 };
+
+export const background = styleMap(({ color }) =>
+  mapToStyleProperty(omit(color.background, "body"), "backgroundColor"),
+);
 
 export const margin = {
   top: styleMap((theme) => spaceMapToCss(theme, "marginTop")),
@@ -25,3 +30,12 @@ export const padding = {
   bottom: styleMap((theme) => spaceMapToCss(theme, "paddingBottom")),
   left: styleMap((theme) => spaceMapToCss(theme, "paddingLeft")),
 };
+
+const displayRules = {
+  block: "block",
+  inline: "inline",
+  none: "none",
+  inlineBlock: "inline-block",
+  flex: "flex",
+};
+export const display = styleMap(mapToStyleProperty(displayRules, "display"));

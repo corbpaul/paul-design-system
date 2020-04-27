@@ -25,6 +25,7 @@ export const withTreatTheme = makeDecorator({
     const initialTheme = storyThemes[0];
 
     const [currentTheme, setCurrentTheme] = useState(initialTheme.treatTheme);
+    const [currentBg, setCurrentBg] = useState(initialTheme.background);
 
     if (initialTheme.webFonts) {
       initialTheme.webFonts.map(({ font, weights }) => {
@@ -32,8 +33,9 @@ export const withTreatTheme = makeDecorator({
       });
     }
 
-    channel.on(EVENTS.CHANGE, (theme, webFonts) => {
+    channel.on(EVENTS.CHANGE, (theme, webFonts, bg) => {
       setCurrentTheme(theme);
+      setCurrentBg(bg);
 
       if (webFonts.length > 0) {
         webFonts.map(({ font, weights }) => {
@@ -42,7 +44,12 @@ export const withTreatTheme = makeDecorator({
       }
     });
 
-    return <TreatProvider theme={currentTheme}>{story}</TreatProvider>;
+    return (
+      <TreatProvider theme={currentTheme}>
+        <style type="text/css">{`body{margin:0;padding:0;background:${currentBg}}`}</style>
+        {story}
+      </TreatProvider>
+    );
   },
 });
 
