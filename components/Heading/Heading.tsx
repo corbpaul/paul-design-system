@@ -5,7 +5,7 @@ import {
   HeadingLevel,
   HeadingWeight,
   useHeadingStyles,
-} from "../Text/useTextStyles";
+} from "../Typography/useTypographyStyles";
 
 const resolveDefaultComponent = {
   1: "h1",

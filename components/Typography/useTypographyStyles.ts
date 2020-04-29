@@ -1,7 +1,7 @@
 import classnames from "classnames";
 import { useStyles } from "react-treat";
 
-import * as styleRefs from "./Text.treat";
+import * as styleRefs from "./Typography.treat";
 
 export interface IUseTextStylesProps {
   baseline: boolean;
@@ -33,18 +33,21 @@ export type HeadingWeight = "regular" | "weak";
 
 interface IUseHeadingStyleProps {
   baseline: boolean;
+  color?: keyof typeof styleRefs.color;
   level: HeadingLevel;
   weight?: HeadingWeight;
 }
 
 export const useHeadingStyles = ({
   baseline,
+  color = "neutral",
   level,
   weight = "regular",
 }: IUseHeadingStyleProps) => {
   const styles = useStyles(styleRefs);
 
   return classnames(
+    styles.color[color],
     styles.fontFamily,
     styles.heading[level].base,
     styles.headingWeight[weight],

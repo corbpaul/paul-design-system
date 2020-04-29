@@ -1,7 +1,10 @@
 import React, { ReactNode } from "react";
 
 import { Box, IBoxProps } from "../Box/Box";
-import { IUseTextStylesProps, useTextStyles } from "./useTextStyles";
+import {
+  IUseTextStylesProps,
+  useTextStyles,
+} from "../Typography/useTypographyStyles";
 
 export interface ITextProps extends Pick<IBoxProps, "component"> {
   baseline?: IUseTextStylesProps["baseline"];

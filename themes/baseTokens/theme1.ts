@@ -49,7 +49,7 @@ export const makeTokens = ({
       capHeightScale: 0.6,
       descenderHeightScale: 0.165,
       fontFamily:
-        "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;",
+        "Roboto,Helvetica Neue,HelveticaNeue,Helvetica,Arial,sans-serif",
       fontWeight: {
         regular: 400,
         medium: 500,
@@ -145,7 +145,7 @@ export const makeTokens = ({
           },
         },
       },
-      webFont: null,
+      webFont: "Roboto",
     },
   };
 
