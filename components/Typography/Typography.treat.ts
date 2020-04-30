@@ -1,13 +1,9 @@
-import { mapValues } from "lodash";
+import { mapValues, omit } from "lodash";
 import { style, styleMap } from "treat";
 import { Theme } from "treat/theme";
 import { TextBreakpoint } from "../../themes/makeTheme";
 import { mapToStyleProperty } from "../../utils/utils";
 import { basekick } from "./basekick";
-
-export const color = {
-  ...styleMap((theme) => mapToStyleProperty(theme.color.foreground, "color")),
-};
 
 export const fontFamily = style(({ typography }) => ({
   fontFamily: typography.fontFamily,
@@ -106,3 +102,23 @@ export const headingWeight = styleMap(({ typography }) =>
     fontWeight: typography.fontWeight[weight],
   })),
 );
+
+export const color = {
+  ...styleMap((theme) =>
+    mapToStyleProperty(
+      omit(theme.color.foreground, ["neutral", "neutralInverted"]),
+      "color",
+    ),
+  ),
+};
+
+export const invertableColor = {
+  neutral: styleMap((theme) => ({
+    light: {
+      color: theme.color.foreground.neutral,
+    },
+    dark: {
+      color: theme.color.foreground.neutralInverted,
+    },
+  })),
+};

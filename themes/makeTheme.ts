@@ -31,12 +31,13 @@ export interface ITreatTokens {
     };
     foreground: {
       neutral: string;
+      neutralInverted: string;
     };
   };
   grid: number;
   space: {
     small: number;
-    standard: number;
+    medium: number;
     large: number;
     xlarge: number;
   };

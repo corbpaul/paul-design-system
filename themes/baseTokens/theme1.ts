@@ -36,14 +36,15 @@ export const makeTokens = ({
       },
       foreground: {
         neutral: black,
+        neutralInverted: white,
       },
     },
     grid: 4,
     space: {
-      small: 8,
-      standard: 16,
-      large: 24,
-      xlarge: 32,
+      small: 2,
+      medium: 4,
+      large: 6,
+      xlarge: 8,
     },
     typography: {
       capHeightScale: 0.6,

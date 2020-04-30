@@ -1,5 +1,5 @@
-- Box reponsive styles
+- ~~Box reponsive styles~~
 - ~~Heading styles~~
 - ~~move to typography component~~
 - Badges
-- Text color
+- ~~Text color~~

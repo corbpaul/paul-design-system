@@ -3,9 +3,16 @@ import { useStyles } from "react-treat";
 
 import * as styleRefs from "./Typography.treat";
 
+type TextColor = keyof typeof styleRefs.color | "neutral";
+
+export const useTextColor = ({ color = "neutral" }: { color: TextColor }) => {
+  const styles = useStyles(styleRefs);
+  return styles.invertableColor[color].light;
+};
+
 export interface IUseTextStylesProps {
   baseline: boolean;
-  color?: keyof typeof styleRefs.color;
+  color?: TextColor;
   size?: keyof typeof styleRefs.text;
   weight?: keyof typeof styleRefs.fontWeight;
 }
@@ -17,9 +24,10 @@ export const useTextStyles = ({
   weight = "regular",
 }: IUseTextStylesProps) => {
   const styles = useStyles(styleRefs);
+  const textColor = useTextColor({ color });
 
   return classnames(
-    styles.color[color],
+    textColor,
     styles.fontFamily,
     styles.text[size].base,
     styles.fontWeight[weight],
@@ -40,14 +48,14 @@ interface IUseHeadingStyleProps {
 
 export const useHeadingStyles = ({
   baseline,
-  color = "neutral",
   level,
   weight = "regular",
 }: IUseHeadingStyleProps) => {
   const styles = useStyles(styleRefs);
+  const textColor = useTextColor({ color: "neutral" });
 
   return classnames(
-    styles.color[color],
+    textColor,
     styles.fontFamily,
     styles.heading[level].base,
     styles.headingWeight[weight],
