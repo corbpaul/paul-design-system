@@ -91,3 +91,18 @@ export const displayDesktop = styleMap(({ utils: { resposiveStyle } }) =>
     }),
   ),
 );
+
+export const borderRadius = {
+  ...styleMap(
+    ({ border }) => mapToStyleProperty(border.radius, "borderRadius"),
+    "borderRadius",
+  ),
+};
+
+const overflowRules = {
+  hidden: "hidden",
+  scroll: "scroll",
+  visible: "visible",
+  auto: "auto",
+};
+export const overflow = styleMap(mapToStyleProperty(overflowRules, "overflow"));

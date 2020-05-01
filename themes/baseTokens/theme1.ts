@@ -27,6 +27,11 @@ export const makeTokens = ({
       tablet: 740,
       desktop: 992,
     },
+    border: {
+      radius: {
+        standard: 2,
+      },
+    },
     color: {
       brand,
       background: {

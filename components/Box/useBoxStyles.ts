@@ -12,6 +12,7 @@ export type ResponsiveSpace = ResponsiveProp<Space>;
 
 export interface IUseBoxStylesProps {
   background?: keyof typeof styleRefs.background;
+  borderRadius?: keyof typeof styleRefs.borderRadius;
   className?: Parameters<typeof classnames>[0];
   component: ElementType | null;
   display?: ResponsiveProp<keyof typeof styleRefs.display>;
@@ -22,6 +23,7 @@ export interface IUseBoxStylesProps {
   marginLeft?: ResponsiveSpace;
   marginX?: ResponsiveSpace;
   marginY?: ResponsiveSpace;
+  overflow?: keyof typeof styleRefs.overflow;
   padding?: ResponsiveSpace;
   paddingTop?: ResponsiveSpace;
   paddingRight?: ResponsiveSpace;
@@ -33,6 +35,7 @@ export interface IUseBoxStylesProps {
 
 export const useBoxStyles = ({
   background,
+  borderRadius,
   className,
   component,
   display,
@@ -43,6 +46,7 @@ export const useBoxStyles = ({
   marginLeft,
   marginX,
   marginY,
+  overflow,
   padding,
   paddingTop,
   paddingRight,
@@ -133,5 +137,7 @@ export const useBoxStyles = ({
         styles.displayDesktop,
       ),
     styles.background[background!],
+    styles.borderRadius[borderRadius!],
+    styles.overflow[overflow!],
   );
 };

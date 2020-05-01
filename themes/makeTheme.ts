@@ -1,5 +1,6 @@
 import { values } from "lodash";
 import { createTheme } from "treat";
+import { getLightVariant } from "../utils/light";
 import { makeThemeUtils } from "./themeUtils";
 
 export const breakpoints = ["mobile", "tablet", "desktop"] as const;
@@ -22,6 +23,11 @@ export interface ITreatTokens {
   name: string;
   displayName: string;
   breakpoint: Record<Breakpoint, number>;
+  border: {
+    radius: {
+      standard: number;
+    };
+  };
   color: {
     brand: string;
     background: {
@@ -93,6 +99,10 @@ const decorateTokens = (treatTokens: ITreatTokens) => {
   const decoratedTokens = {
     color: {
       ...color,
+    },
+    background: {
+      ...color.background,
+      neutralLight: getLightVariant(color.background.neutral),
     },
     ...restTokens,
   };

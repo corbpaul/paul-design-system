@@ -10,6 +10,7 @@ export interface IBoxProps
 
 export const Box = ({
   background,
+  borderRadius,
   className,
   component = "div",
   display,
@@ -20,6 +21,7 @@ export const Box = ({
   marginLeft,
   marginX,
   marginY,
+  overflow,
   padding,
   paddingTop,
   paddingRight,
@@ -31,6 +33,7 @@ export const Box = ({
 }: IBoxProps) => {
   const boxStyles = useBoxStyles({
     background,
+    borderRadius,
     className,
     component,
     display,
@@ -41,6 +44,7 @@ export const Box = ({
     marginLeft,
     marginX,
     marginY,
+    overflow,
     padding,
     paddingTop,
     paddingRight,

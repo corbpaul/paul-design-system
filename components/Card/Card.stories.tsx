@@ -1,4 +1,5 @@
 import React from "react";
+import { Badge } from "../Badge/Badge";
 import { Heading } from "../Heading/Heading";
 import { Stack } from "../Stack/Stack";
 import { Text } from "../Text/Text";
@@ -12,6 +13,7 @@ export default {
 export const CardContent = () => (
   <Card>
     <Stack space="large">
+      <Badge>EMILY BLUNT</Badge>
       <Heading level={3}>
         Emily Blunt: "It's about human beings and how they're affected by a
         crisis"
