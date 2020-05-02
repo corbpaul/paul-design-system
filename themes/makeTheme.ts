@@ -99,10 +99,10 @@ const decorateTokens = (treatTokens: ITreatTokens) => {
   const decoratedTokens = {
     color: {
       ...color,
-    },
-    background: {
-      ...color.background,
-      neutralLight: getLightVariant(color.background.neutral),
+      background: {
+        ...color.background,
+        neutralLight: getLightVariant(color.background.neutral),
+      },
     },
     ...restTokens,
   };

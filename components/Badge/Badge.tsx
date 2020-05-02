@@ -38,7 +38,7 @@ export const Badge = ({
   return (
     <Box className={styles.outer} display="flex">
       <Box
-        // background={backgroundForType(type, weight)}
+        background={backgroundForType(type, weight)}
         borderRadius="standard"
         overflow="hidden"
         paddingX="small"
