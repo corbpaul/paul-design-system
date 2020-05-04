@@ -1,11 +1,11 @@
-import { addDecorator, addParameters } from "@storybook/react";
+import { addDecorator } from "@storybook/react";
+import React from "react";
+
+import { ThemeProvider } from "../components/ThemeProvider/ThemeProvider";
+import { theme1 } from "../themes";
 
 import "../reset";
 
-import * as themes from "../themes";
-import { withTreatTheme } from "./storybook-addon-treat-theme";
-
-addDecorator(withTreatTheme);
-addParameters({
-  themes: { themes },
-});
+addDecorator((storyFn) => (
+  <ThemeProvider theme={theme1}>{storyFn()}</ThemeProvider>
+));

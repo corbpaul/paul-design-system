@@ -9,6 +9,7 @@ import {
 export interface ITextProps extends Pick<IBoxProps, "component"> {
   baseline?: IUseTextStylesProps["baseline"];
   children?: ReactNode;
+  color?: IUseTextStylesProps["color"];
   size?: IUseTextStylesProps["size"];
   weight?: IUseTextStylesProps["weight"];
 }
@@ -16,11 +17,12 @@ export interface ITextProps extends Pick<IBoxProps, "component"> {
 export const Text = ({
   baseline = true,
   children,
+  color,
   component = "span",
   size,
   weight,
 }: ITextProps) => {
-  const textStyles = useTextStyles({ baseline, size, weight });
+  const textStyles = useTextStyles({ baseline, color, size, weight });
 
   return (
     <Box className={textStyles} component={component} display="block">

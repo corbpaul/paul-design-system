@@ -1,6 +1,6 @@
-import { values } from "lodash";
+import { mapValues, values } from "lodash";
 import { createTheme } from "treat";
-import { getLightVariant } from "../utils/light";
+import { getLightVariant, isLight } from "../utils/light";
 import { makeThemeUtils } from "./themeUtils";
 
 export const breakpoints = ["mobile", "tablet", "desktop"] as const;
@@ -15,9 +15,7 @@ type TextDefinition = Record<
   }
 >;
 
-type FontSize = "xsmall" | "small" | "standard" | "large";
 type FontWeight = "regular" | "medium" | "strong";
-type LineHeight = "xsmall" | "small" | "standard" | "large";
 
 export interface ITreatTokens {
   name: string;
@@ -33,6 +31,7 @@ export interface ITreatTokens {
     background: {
       body: string;
       card: string;
+      critical: string;
       neutral: string;
     };
     foreground: {
@@ -76,6 +75,15 @@ export interface ITreatTokens {
 
 const makeRuntimeTokens = (tokens: TreatTheme) => ({
   name: tokens.name,
+  backgroundLightness: mapValues(tokens.color.background, (background) => {
+    if (!background) {
+      throw new Error(
+        `Error resolving background lightness for background ${background} in ${tokens.name} theme}`,
+      );
+    }
+
+    return isLight(background) ? "light" : "dark";
+  }),
   displayName: tokens.displayName,
   background: tokens.color.background.body,
   color: tokens.color,
@@ -101,6 +109,7 @@ const decorateTokens = (treatTokens: ITreatTokens) => {
       ...color,
       background: {
         ...color.background,
+        criticalLight: getLightVariant(color.background.critical),
         neutralLight: getLightVariant(color.background.neutral),
       },
     },
@@ -123,3 +132,4 @@ export function makeTheme(treatTokens: ITreatTokens) {
 }
 
 export type TreatTheme = ReturnType<typeof decorateTokens>;
+export type Theme = ReturnType<typeof makeTheme>;

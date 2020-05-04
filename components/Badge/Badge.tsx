@@ -6,7 +6,7 @@ import { Text } from "../Text/Text";
 
 import * as styleRefs from "./Badge.treat";
 
-const validBadgeTypes = ["neutral"] as const;
+const validBadgeTypes = ["critical", "neutral"] as const;
 
 type BadgeType = typeof validBadgeTypes[number];
 type BadgeWeight = "regular" | "strong";
@@ -26,6 +26,8 @@ const backgroundForType = (type: BadgeType, weight: BadgeWeight) => {
     case "neutral":
     default:
       return "neutralLight";
+    case "critical":
+      return "critical";
   }
 };
 

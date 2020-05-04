@@ -1,5 +1,6 @@
 import { AllHTMLAttributes, createElement, ElementType } from "react";
 
+import { renderBackgroundProvider } from "./BackgroundContext";
 import { IUseBoxStylesProps, useBoxStyles } from "./useBoxStyles";
 
 export interface IBoxProps
@@ -53,5 +54,11 @@ export const Box = ({
     paddingX,
     paddingY,
   });
-  return createElement(component, { className: boxStyles, ...restProps });
+
+  const element = createElement(component, {
+    className: boxStyles,
+    ...restProps,
+  });
+
+  return renderBackgroundProvider(background, element);
 };

@@ -1,16 +1,32 @@
 import classnames from "classnames";
 import { useStyles } from "react-treat";
 
+import {
+  useBackground,
+  useBackgroundLightness,
+} from "../Box/BackgroundContext";
+import { IUseBoxStylesProps } from "../Box/useBoxStyles";
 import * as styleRefs from "./Typography.treat";
 
 type TextColor = keyof typeof styleRefs.color | "neutral";
 
-export const useTextColor = ({ color = "neutral" }: { color: TextColor }) => {
+export const useTextColor = ({
+  color = "neutral",
+  backgroundContext: backgroundContextOverride,
+}: {
+  color: TextColor;
+  backgroundContext?: IUseBoxStylesProps["background"];
+}) => {
   const styles = useStyles(styleRefs);
-  return styles.invertableColor[color].light;
+  const backgroundContext = useBackground();
+  const background = backgroundContextOverride || backgroundContext;
+  const backgroundLightness = useBackgroundLightness(background);
+
+  return styles.invertableColor.neutral[backgroundLightness];
 };
 
 export interface IUseTextStylesProps {
+  backgroundContext?: IUseBoxStylesProps["background"];
   baseline: boolean;
   color?: TextColor;
   size?: keyof typeof styleRefs.text;
@@ -18,13 +34,14 @@ export interface IUseTextStylesProps {
 }
 
 export const useTextStyles = ({
+  backgroundContext,
   baseline,
   color = "neutral",
   size = "standard",
   weight = "regular",
 }: IUseTextStylesProps) => {
   const styles = useStyles(styleRefs);
-  const textColor = useTextColor({ color });
+  const textColor = useTextColor({ color, backgroundContext });
 
   return classnames(
     textColor,

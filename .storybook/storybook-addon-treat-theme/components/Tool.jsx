@@ -22,44 +22,26 @@ const IconButtonLabel = styled.div(({ theme }) => ({
   marginLeft: 10,
 }));
 
-const createThemeSelectorItem = memoize(1000)(
-  (
-    id,
-    displayName,
-    treatTheme,
-    background,
-    brand,
-    webFonts,
-    hasSwatch,
-    change,
-  ) => ({
-    id: id || displayName,
-    title: displayName,
-    onClick: () => {
-      change({ selected: treatTheme, displayName, webFonts, bg: background });
-    },
-    right: hasSwatch ? <ColorIcon background={brand} /> : undefined,
-  }),
-);
+const createThemeSelectorItem = memoize(1000)((item) => ({
+  id: item.id || item.displayName,
+  title: item.displayName,
+  onClick: () => {
+    change({
+      selected: item,
+      displayName: item.displayName,
+      webFotns: item.webFonts,
+      bg: item.background,
+    });
+  },
+  right: <ColorIcon background={item.brand} />,
+}));
 
 const getDisplayedItems = memoize(10)((list, change) => {
   let availableThemeSelectorItems = [];
 
   if (list.length) {
     availableThemeSelectorItems = [
-      ...list.map(
-        ({ treatTheme, displayName, background, color: { brand }, webFonts }) =>
-          createThemeSelectorItem(
-            null,
-            displayName,
-            treatTheme,
-            background,
-            brand,
-            webFonts,
-            true,
-            change,
-          ),
-      ),
+      ...list.map((item) => createThemeSelectorItem(item)),
     ];
   }
 

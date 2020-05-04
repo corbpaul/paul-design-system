@@ -16,6 +16,7 @@ export const makeTokens = ({
   tokenOverrides = {},
 }: IMakeTokensOptions): ITreatTokens => {
   const black = "#1c1c1c";
+  const critical = "#ff4e36";
   const neutral = "#747474";
   const white = "#fff";
 
@@ -37,6 +38,7 @@ export const makeTokens = ({
       background: {
         body: "#eee",
         card: white,
+        critical,
         neutral,
       },
       foreground: {

@@ -1,4 +1,4 @@
-import { getLuminance, parseToHsl, toColorString } from "polished";
+import { getLuminance, parseToHsl, parseToRgb, toColorString } from "polished";
 
 const smoothSaturation = (saturation: number, luminance: number) => {
   const isBright = luminance > 0.6;
@@ -30,3 +30,17 @@ export function getLightVariant(color: string) {
     lightness: smoothLightness(lightness, luminance),
   });
 }
+
+export const isLight = (inputColor: string) => {
+  return [inputColor].some((color) => {
+    const { red, green, blue } = parseToRgb(color);
+
+    //   - YIQ:
+    //     https://en.wikipedia.org/wiki/YIQ
+    //   - Calculating contrast:
+    //     https://24ways.org/2010/calculating-color-contrast/
+    const yiq = (red * 299 + green * 587 + blue * 114) / 1000;
+
+    return yiq >= 128;
+  });
+};

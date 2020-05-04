@@ -13,7 +13,7 @@ export default {
 export const CardContent = () => (
   <Card>
     <Stack space="large">
-      <Badge>EMILY BLUNT</Badge>
+      <Badge type="neutral">EMILY BLUNT</Badge>
       <Heading level={3}>
         Emily Blunt: "It's about human beings and how they're affected by a
         crisis"

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { addons, makeDecorator } from "@storybook/addons";
-import { TreatProvider } from "react-treat";
 import { values } from "lodash";
 import WebFont from "webfontloader";
+
+import { ThemeProvider } from "../../components/ThemeProvider/ThemeProvider";
 
 import { EVENTS } from "./constants";
 
@@ -24,7 +25,7 @@ export const withTreatTheme = makeDecorator({
     const storyThemes = values(settings.parameters.themes);
     const initialTheme = storyThemes[0];
 
-    const [currentTheme, setCurrentTheme] = useState(initialTheme.treatTheme);
+    const [currentTheme, setCurrentTheme] = useState(initialTheme);
     const [currentBg, setCurrentBg] = useState(initialTheme.background);
 
     if (initialTheme.webFonts) {
@@ -45,10 +46,10 @@ export const withTreatTheme = makeDecorator({
     });
 
     return (
-      <TreatProvider theme={currentTheme}>
+      <ThemeProvider theme={currentTheme}>
         <style type="text/css">{`body{margin:0;padding:0;background:${currentBg}}`}</style>
         {story}
-      </TreatProvider>
+      </ThemeProvider>
     );
   },
 });
