@@ -5,7 +5,7 @@ import { IUseBoxStylesProps, useBoxStyles } from "./useBoxStyles";
 
 export interface IBoxProps
   extends Omit<IUseBoxStylesProps, "component">,
-    Omit<AllHTMLAttributes<HTMLElement>, "className"> {
+    Omit<AllHTMLAttributes<HTMLElement>, "width" | "height" | "className"> {
   component?: ElementType;
 }
 
@@ -15,6 +15,7 @@ export const Box = ({
   className,
   component = "div",
   display,
+  image,
   margin,
   marginTop,
   marginRight,
@@ -22,6 +23,7 @@ export const Box = ({
   marginLeft,
   marginX,
   marginY,
+  objectFit,
   overflow,
   padding,
   paddingTop,
@@ -30,6 +32,13 @@ export const Box = ({
   paddingLeft,
   paddingX,
   paddingY,
+  position,
+  top,
+  right,
+  bottom,
+  left,
+  width,
+  height,
   ...restProps
 }: IBoxProps) => {
   const boxStyles = useBoxStyles({
@@ -38,6 +47,7 @@ export const Box = ({
     className,
     component,
     display,
+    image,
     margin,
     marginTop,
     marginRight,
@@ -45,6 +55,7 @@ export const Box = ({
     marginLeft,
     marginX,
     marginY,
+    objectFit,
     overflow,
     padding,
     paddingTop,
@@ -53,6 +64,13 @@ export const Box = ({
     paddingLeft,
     paddingX,
     paddingY,
+    position,
+    top,
+    right,
+    bottom,
+    left,
+    width,
+    height,
   });
 
   const element = createElement(component, {

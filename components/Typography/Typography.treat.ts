@@ -122,3 +122,16 @@ export const invertableColor = {
     },
   })),
 };
+
+const textTransformRules = {
+  hidden: "hidden",
+  scroll: "scroll",
+  visible: "visible",
+  auto: "auto",
+  uppercase: "uppercase",
+  lowercase: "lowercase",
+  capitalize: "capitalize",
+};
+export const textTransform = styleMap(
+  mapToStyleProperty(textTransformRules, "textTransform"),
+);

@@ -11,6 +11,7 @@ export interface ITextProps extends Pick<IBoxProps, "component"> {
   children?: ReactNode;
   color?: IUseTextStylesProps["color"];
   size?: IUseTextStylesProps["size"];
+  textTransform?: IUseTextStylesProps["textTransform"];
   weight?: IUseTextStylesProps["weight"];
 }
 
@@ -20,9 +21,16 @@ export const Text = ({
   color,
   component = "span",
   size,
+  textTransform,
   weight,
 }: ITextProps) => {
-  const textStyles = useTextStyles({ baseline, color, size, weight });
+  const textStyles = useTextStyles({
+    baseline,
+    color,
+    size,
+    textTransform,
+    weight,
+  });
 
   return (
     <Box className={textStyles} component={component} display="block">

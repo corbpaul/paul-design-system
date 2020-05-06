@@ -31,6 +31,19 @@ export const background = styleMap(({ color }) =>
   mapToStyleProperty(omit(color.background, "body"), "backgroundColor"),
 );
 
+export const image = styleMap((theme) => {
+  const spaces = {
+    ...theme.image,
+    none: 0,
+  };
+
+  return mapToStyleProperty(spaces, "paddingBottom", (value, propertyName) => {
+    return {
+      [propertyName]: `${value}%`,
+    };
+  });
+});
+
 export const margin = {
   top: styleMap((theme) => spaceMapToCss(theme, "marginTop", "mobile")),
   right: styleMap((theme) => spaceMapToCss(theme, "marginRight", "mobile")),
@@ -92,11 +105,37 @@ export const displayDesktop = styleMap(({ utils: { resposiveStyle } }) =>
   ),
 );
 
+const positionRules = {
+  absolute: "absolute",
+  relative: "relative",
+  fixed: "fixed",
+};
+export const position = styleMap(mapToStyleProperty(positionRules, "position"));
+
 export const borderRadius = {
   ...styleMap(
     ({ border }) => mapToStyleProperty(border.radius, "borderRadius"),
     "borderRadius",
   ),
+};
+
+const relativePositionRules = {
+  0: 0,
+};
+type PositionRulesType = Record<keyof typeof relativePositionRules, string>;
+export const relativePosition = {
+  top: styleMap(
+    mapToStyleProperty(relativePositionRules, "top"),
+  ) as PositionRulesType,
+  right: styleMap(
+    mapToStyleProperty(relativePositionRules, "right"),
+  ) as PositionRulesType,
+  bottom: styleMap(
+    mapToStyleProperty(relativePositionRules, "bottom"),
+  ) as PositionRulesType,
+  left: styleMap(
+    mapToStyleProperty(relativePositionRules, "left"),
+  ) as PositionRulesType,
 };
 
 const overflowRules = {
@@ -106,3 +145,40 @@ const overflowRules = {
   auto: "auto",
 };
 export const overflow = styleMap(mapToStyleProperty(overflowRules, "overflow"));
+
+const widthRules = {
+  full: "100%",
+};
+export const width = {
+  ...styleMap(mapToStyleProperty(widthRules, "width"), "width"),
+  ...styleMap(
+    (theme) => ({
+      touchable: { width: theme.grid * theme.touchableSize },
+    }),
+    "width",
+  ),
+};
+
+const heightRules = {
+  full: "100%",
+};
+export const height = {
+  ...styleMap(mapToStyleProperty(heightRules, "height"), "height"),
+  ...styleMap(
+    (theme) => ({
+      touchable: { height: theme.grid * theme.touchableSize },
+    }),
+    "height",
+  ),
+};
+
+const objectFitRules = {
+  fill: "fill",
+  contain: "contain",
+  cover: "cover",
+  none: "none",
+  scaleDown: "scale-down",
+};
+export const objectFit = styleMap(
+  mapToStyleProperty(objectFitRules, "objectFit"),
+);

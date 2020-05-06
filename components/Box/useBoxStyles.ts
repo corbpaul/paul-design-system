@@ -7,6 +7,7 @@ import { resolveResponsiveProp, ResponsiveProp } from "./responsiveProp";
 import * as resetStyleRefs from "../../reset/reset.treat";
 import * as styleRefs from "./Box.treat";
 
+export type Image = keyof Theme["image"] | "none";
 export type Space = keyof Theme["space"] | "none";
 export type ResponsiveSpace = ResponsiveProp<Space>;
 
@@ -16,6 +17,7 @@ export interface IUseBoxStylesProps {
   className?: Parameters<typeof classnames>[0];
   component: ElementType | null;
   display?: ResponsiveProp<keyof typeof styleRefs.display>;
+  image?: Image;
   margin?: ResponsiveSpace;
   marginTop?: ResponsiveSpace;
   marginRight?: ResponsiveSpace;
@@ -23,6 +25,7 @@ export interface IUseBoxStylesProps {
   marginLeft?: ResponsiveSpace;
   marginX?: ResponsiveSpace;
   marginY?: ResponsiveSpace;
+  objectFit?: keyof typeof styleRefs.objectFit;
   overflow?: keyof typeof styleRefs.overflow;
   padding?: ResponsiveSpace;
   paddingTop?: ResponsiveSpace;
@@ -31,6 +34,13 @@ export interface IUseBoxStylesProps {
   paddingLeft?: ResponsiveSpace;
   paddingX?: ResponsiveSpace;
   paddingY?: ResponsiveSpace;
+  position?: keyof typeof styleRefs.position;
+  top?: keyof typeof styleRefs.relativePosition.top;
+  right?: keyof typeof styleRefs.relativePosition.right;
+  bottom?: keyof typeof styleRefs.relativePosition.bottom;
+  left?: keyof typeof styleRefs.relativePosition.left;
+  width?: keyof typeof styleRefs.width;
+  height?: keyof typeof styleRefs.height;
 }
 
 export const useBoxStyles = ({
@@ -39,6 +49,7 @@ export const useBoxStyles = ({
   className,
   component,
   display,
+  image,
   margin,
   marginTop,
   marginRight,
@@ -46,6 +57,7 @@ export const useBoxStyles = ({
   marginLeft,
   marginX,
   marginY,
+  objectFit,
   overflow,
   padding,
   paddingTop,
@@ -54,6 +66,13 @@ export const useBoxStyles = ({
   paddingLeft,
   paddingX,
   paddingY,
+  position,
+  top,
+  right,
+  bottom,
+  left,
+  width,
+  height,
 }: IUseBoxStylesProps) => {
   const resetStyles = useStyles(resetStyleRefs);
   const styles = useStyles(styleRefs);
@@ -138,6 +157,15 @@ export const useBoxStyles = ({
       ),
     styles.background[background!],
     styles.borderRadius[borderRadius!],
+    styles.objectFit[objectFit!],
     styles.overflow[overflow!],
+    styles.position[position!],
+    styles.relativePosition.top[top!],
+    styles.relativePosition.bottom[bottom!],
+    styles.relativePosition.right[right!],
+    styles.relativePosition.left[left!],
+    styles.width[width!],
+    styles.height[height!],
+    styles.image[image!],
   );
 };

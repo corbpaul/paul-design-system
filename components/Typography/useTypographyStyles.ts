@@ -22,6 +22,14 @@ export const useTextColor = ({
   const background = backgroundContextOverride || backgroundContext;
   const backgroundLightness = useBackgroundLightness(background);
 
+  if (color !== "neutral") {
+    return color in styles.invertableColor
+      ? styles.invertableColor[color as keyof typeof styles.invertableColor][
+          backgroundLightness
+        ]
+      : styles.color[color];
+  }
+
   return styles.invertableColor.neutral[backgroundLightness];
 };
 
@@ -30,6 +38,7 @@ export interface IUseTextStylesProps {
   baseline: boolean;
   color?: TextColor;
   size?: keyof typeof styleRefs.text;
+  textTransform?: keyof typeof styleRefs.textTransform;
   weight?: keyof typeof styleRefs.fontWeight;
 }
 
@@ -38,6 +47,7 @@ export const useTextStyles = ({
   baseline,
   color = "neutral",
   size = "standard",
+  textTransform,
   weight = "regular",
 }: IUseTextStylesProps) => {
   const styles = useStyles(styleRefs);
@@ -50,6 +60,7 @@ export const useTextStyles = ({
     styles.fontWeight[weight],
     baseline ? styles.text[size].baseline : null,
     baseline ? styles.text[size].cropFirstLine : null,
+    textTransform ? styles.textTransform[textTransform] : null,
   );
 };
 

@@ -32,20 +32,32 @@ export interface ITreatTokens {
       body: string;
       card: string;
       critical: string;
+      info: string;
       neutral: string;
     };
     foreground: {
+      critical: string;
+      info: string;
       neutral: string;
       neutralInverted: string;
+      secondary: string;
     };
   };
   grid: number;
+  image: {
+    thumb: number;
+  };
   space: {
+    gutter: number;
+    xxsmall: number;
+    xsmall: number;
     small: number;
     medium: number;
     large: number;
     xlarge: number;
+    xxlarge: number;
   };
+  touchableSize: number;
   typography: {
     capHeightScale: number;
     descenderHeightScale: number;
@@ -110,6 +122,7 @@ const decorateTokens = (treatTokens: ITreatTokens) => {
       background: {
         ...color.background,
         criticalLight: getLightVariant(color.background.critical),
+        infoLight: getLightVariant(color.background.info),
         neutralLight: getLightVariant(color.background.neutral),
       },
     },

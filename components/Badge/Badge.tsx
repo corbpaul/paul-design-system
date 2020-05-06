@@ -6,7 +6,7 @@ import { Text } from "../Text/Text";
 
 import * as styleRefs from "./Badge.treat";
 
-const validBadgeTypes = ["critical", "neutral"] as const;
+const validBadgeTypes = ["critical", "info", "neutral"] as const;
 
 type BadgeType = typeof validBadgeTypes[number];
 type BadgeWeight = "regular" | "strong";
@@ -27,7 +27,9 @@ const backgroundForType = (type: BadgeType, weight: BadgeWeight) => {
     default:
       return "neutralLight";
     case "critical":
-      return "critical";
+      return "criticalLight";
+    case "info":
+      return "infoLight";
   }
 };
 
@@ -45,7 +47,14 @@ export const Badge = ({
         overflow="hidden"
         paddingX="small"
       >
-        <Text baseline={false} component="span" size="xsmall" weight="medium">
+        <Text
+          baseline={false}
+          color={type}
+          component="span"
+          size="xsmall"
+          textTransform="uppercase"
+          weight="medium"
+        >
           {children}
         </Text>
       </Box>

@@ -6,7 +6,7 @@ export interface ICardProps {
 }
 
 export const Card = ({ children }: ICardProps) => (
-  <Box background="card" paddingX="large" paddingY="xlarge">
+  <Box background="card" paddingX="gutter" paddingY="large">
     {children}
   </Box>
 );

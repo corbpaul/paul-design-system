@@ -15,9 +15,11 @@ export const makeTokens = ({
   brand,
   tokenOverrides = {},
 }: IMakeTokensOptions): ITreatTokens => {
-  const black = "#1c1c1c";
+  const black = "#0a1633";
   const critical = "#ff4e36";
+  const info = "#1e468c";
   const neutral = "#747474";
+  const secondary = "#707070";
   const white = "#fff";
 
   const tokens: ITreatTokens = {
@@ -39,20 +41,32 @@ export const makeTokens = ({
         body: "#eee",
         card: white,
         critical,
+        info,
         neutral,
       },
       foreground: {
+        critical,
+        info,
         neutral: black,
         neutralInverted: white,
+        secondary,
       },
     },
     grid: 4,
-    space: {
-      small: 2,
-      medium: 4,
-      large: 6,
-      xlarge: 8,
+    image: {
+      thumb: 66.67,
     },
+    space: {
+      gutter: 6,
+      xxsmall: 1,
+      xsmall: 2,
+      small: 3,
+      medium: 5,
+      large: 8,
+      xlarge: 12,
+      xxlarge: 24,
+    },
+    touchableSize: 12,
     typography: {
       capHeightScale: 0.6,
       descenderHeightScale: 0.165,

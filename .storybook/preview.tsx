@@ -7,5 +7,8 @@ import { theme1 } from "../themes";
 import "../reset";
 
 addDecorator((storyFn) => (
-  <ThemeProvider theme={theme1}>{storyFn()}</ThemeProvider>
+  <ThemeProvider theme={theme1}>
+    <style type="text/css">{`body{margin:0;padding:0;background:${theme1.color.background.body}}`}</style>
+    {storyFn()}
+  </ThemeProvider>
 ));
