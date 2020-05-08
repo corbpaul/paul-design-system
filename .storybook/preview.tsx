@@ -1,3 +1,4 @@
+import { withA11y } from "@storybook/addon-a11y";
 import { addDecorator } from "@storybook/react";
 import React from "react";
 
@@ -12,3 +13,4 @@ addDecorator((storyFn) => (
     {storyFn()}
   </ThemeProvider>
 ));
+addDecorator(withA11y);

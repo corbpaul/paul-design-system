@@ -4,7 +4,7 @@ module.exports = {
   addons: [
     "@storybook/preset-typescript",
     "@storybook/addon-viewport/register",
-    "./.storybook/storybook-addon-treat-theme/register",
+    "@storybook/addon-a11y/register",
   ],
   stories: ["../components/**/*.stories.{js,jsx,ts,tsx}"],
   webpackFinal: async (config) => {
