@@ -1,7 +1,7 @@
 import React from "react";
 import { useStyles } from "react-treat";
 
-import { Box } from "../full/Box/Box";
+import { Box } from "../Box/Box";
 import { Text } from "../Text/Text";
 
 import * as styleRefs from "./Badge.treat";

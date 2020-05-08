@@ -1,9 +1,9 @@
 import classnames from "classnames";
 import React, { CSSProperties, ReactElement, useContext } from "react";
 import { useStyles } from "react-treat";
-import { useBackground } from "../full/Box/BackgroundContext";
-import { useBoxStyles } from "../full/Box/useBoxStyles";
-import HeadingContext from "../full/Heading/HeadingContext";
+import { useBackground } from "../Box/BackgroundContext";
+import { useBoxStyles } from "../Box/useBoxStyles";
+import HeadingContext from "../Heading/HeadingContext";
 import TextContext from "../Text/TextContext";
 import { useTextColor, useTextWeight } from "../Typography/useTypographyStyles";
 import { useVirtualTouchable } from "../VirtualTouchable/useVirtualTouchable";

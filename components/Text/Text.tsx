@@ -1,6 +1,6 @@
 import React, { ReactNode, useContext, useMemo } from "react";
 
-import { Box, IBoxProps } from "../full/Box/Box";
+import { Box, IBoxProps } from "../Box/Box";
 import {
   IUseTextStylesProps,
   useTextStyles,

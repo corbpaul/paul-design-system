@@ -5,8 +5,8 @@ import { useStyles } from "react-treat";
 import {
   useBackground,
   useBackgroundLightness,
-} from "../full/Box/BackgroundContext";
-import { IUseBoxStylesProps } from "../full/Box/useBoxStyles";
+} from "../Box/BackgroundContext";
+import { IUseBoxStylesProps } from "../Box/useBoxStyles";
 import TextLinkRendererContext from "../TextLinkRenderer/TextLinkRendererContext";
 
 import * as styleRefs from "./Typography.treat";

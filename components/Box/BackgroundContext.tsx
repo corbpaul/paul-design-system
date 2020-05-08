@@ -1,10 +1,9 @@
 import React, { createContext, ReactElement, useContext } from "react";
-
 import { useTheme } from "../ThemeProvider/ThemeProvider";
-import { IUseBoxStylesProps } from "./useBoxStyles";
+import { IBoxProps } from "./Box";
 
 export type BackgroundVariant =
-  | IUseBoxStylesProps["background"]
+  | IBoxProps["background"]
   | "UNKNOWN_DARK"
   | "UNKNOWN_LIGHT";
 
@@ -25,10 +24,10 @@ export const renderBackgroundProvider = (
 export const useBackground = () => useContext(backgroundContext);
 
 export const useBackgroundLightness = (
-  backgroundeOverride?: ReturnType<typeof useBackground>,
+  backgroundOverride?: ReturnType<typeof useBackground>,
 ) => {
   const backgroundFromContext = useBackground();
-  const background = backgroundeOverride || backgroundFromContext;
+  const background = backgroundOverride || backgroundFromContext;
   const { backgroundLightness } = useTheme();
   const defaultLightness = backgroundLightness.body;
 

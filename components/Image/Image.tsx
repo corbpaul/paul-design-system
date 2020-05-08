@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "../full/Box/Box";
+import { Box } from "../Box/Box";
 
 export interface IImageProps {
   src: string;

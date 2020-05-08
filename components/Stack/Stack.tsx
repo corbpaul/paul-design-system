@@ -1,7 +1,7 @@
 import React, { Children, ReactNode } from "react";
 import { useStyles } from "react-treat";
-import { Box } from "../full/Box/Box";
-import { IUseBoxStylesProps, useBoxStyles } from "../full/Box/useBoxStyles";
+import { Box } from "../Box/Box";
+import { IUseBoxStylesProps, useBoxStyles } from "../Box/useBoxStyles";
 
 import * as styleRefs from "./Stack.treat";
 

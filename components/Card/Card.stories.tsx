@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "../Box/Box";
-import { Heading } from "../full/Heading/Heading";
+import { Heading } from "../Heading/Heading";
 import { Image } from "../Image/Image";
 import { Stack } from "../Stack/Stack";
 import { Text } from "../Text/Text";
