@@ -38,7 +38,8 @@ export const TextLinkRenderer = (props: ITextLinkRendererProps) => {
 
 function useTextLinkColor() {
   const backgroundContext = useBackground();
-  const highlightLink = backgroundContext === "card" || !backgroundContext;
+  const inHeading = useContext(HeadingContext);
+  const highlightLink = backgroundContext === "card" && !inHeading || !backgroundContext && !inHeading;
   return highlightLink ? "link" : "neutral";
 }
 
@@ -48,7 +49,7 @@ function useTextLinkStyles(color: "link" | "neutral", showVisited: boolean) {
   const mediumWeight = useTextWeight("medium");
 
   return [
-    color === "link" ? styles.underlineOnHoverOnly : styles.underlineAlways,
+    inHeading ? styles.colorOnHover : color === "link" ? styles.underlineOnHoverOnly : styles.underlineAlways,
     useTextColor({ color }),
     !inHeading ? mediumWeight : null,
     showVisited ? styles.visited : null,

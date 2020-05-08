@@ -12,6 +12,12 @@ export const underlineOnHoverOnly = style({
   },
 });
 
+export const colorOnHover = style((theme) => ({
+  ":hover": {
+    color: theme.color.foreground.link,
+  },
+}));
+
 export const visited = style((theme) => ({
   ":visited": {
     color: theme.color.foreground.linkVisited,
