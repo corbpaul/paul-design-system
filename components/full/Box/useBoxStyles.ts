@@ -7,6 +7,7 @@ import * as resetStyleRefs from "../../../reset/reset.treat";
 import { resolveResponsiveProp, ResponsiveProp } from "../utils/responsiveProp";
 import * as styleRefs from "./Box.treat";
 
+export type Image = keyof Theme["image"] | "none";
 export type Space = keyof Theme["space"] | "none";
 export type ResponsiveSpace = ResponsiveProp<Space>;
 
@@ -51,6 +52,8 @@ export interface IUseBoxStylesProps {
   left?: keyof typeof styleRefs.relativePosition.left;
   right?: keyof typeof styleRefs.relativePosition.right;
   userSelect?: keyof typeof styleRefs.userSelect;
+  image?: Image;
+  objectFit?: keyof typeof styleRefs.objectFit;
   className?: Parameters<typeof classnames>[0];
 }
 
@@ -96,6 +99,8 @@ export const useBoxStyles = ({
   left,
   className,
   userSelect,
+  image,
+  objectFit,
 }: IUseBoxStylesProps) => {
   const resetStyles = useStyles(resetStyleRefs);
   const styles = useStyles(styleRefs);
@@ -226,5 +231,7 @@ export const useBoxStyles = ({
       ),
     className,
     styles.userSelect[userSelect!],
+    styles.image[image!],
+    styles.objectFit[objectFit!],
   );
 };

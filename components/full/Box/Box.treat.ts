@@ -349,3 +349,27 @@ export const relativePosition = {
 export const userSelect = styleMap({
   none: { userSelect: "none" },
 });
+
+export const image = styleMap((theme) => {
+  const spaces = {
+    ...theme.image,
+    none: 0,
+  };
+
+  return mapToStyleProperty(spaces, "paddingBottom", (value, propertyName) => {
+    return {
+      [propertyName]: `${value}%`,
+    };
+  });
+});
+
+const objectFitRules = {
+  fill: "fill",
+  contain: "contain",
+  cover: "cover",
+  none: "none",
+  scaleDown: "scale-down",
+};
+export const objectFit = styleMap(
+  mapToStyleProperty(objectFitRules, "objectFit"),
+);

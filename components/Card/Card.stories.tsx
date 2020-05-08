@@ -1,7 +1,7 @@
 import React from "react";
-import { Badge } from "../Badge/Badge";
 import { Box } from "../Box/Box";
 import { Heading } from "../full/Heading/Heading";
+import { Image } from "../Image/Image";
 import { Stack } from "../Stack/Stack";
 import { Text } from "../Text/Text";
 import { TextLink } from "../TextLink/TextLink";
@@ -15,18 +15,10 @@ export default {
 export const CardContent = () => (
   <Card>
     <Stack space="gutter">
-      <Box overflow="hidden" position="relative" image="thumb">
-        <Box
-          src="https://images.unsplash.com/photo-1510486102594-9551be1c76d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-          component="img"
-          position="absolute"
-          top={0}
-          left={0}
-          width="full"
-          height="full"
-          objectFit="cover"
-        />
-      </Box>
+      <Image
+        src="https://images.unsplash.com/photo-1510486102594-9551be1c76d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+        alt="Emily Blunt"
+      />
       <Text size="small" textTransform="uppercase">
         <TextLink href="http://google.com">Showbiz</TextLink>
       </Text>

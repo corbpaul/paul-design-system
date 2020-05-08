@@ -57,6 +57,8 @@ export const Box = forwardRef<HTMLElement, IBoxProps>(
       left,
       className,
       userSelect,
+      image,
+      objectFit,
       ...restProps
     },
     ref,
@@ -103,6 +105,8 @@ export const Box = forwardRef<HTMLElement, IBoxProps>(
       left,
       className,
       userSelect,
+      image,
+      objectFit,
     });
 
     const element = createElement(component, {
