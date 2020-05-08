@@ -1,5 +1,8 @@
 - ~~Box reponsive styles~~
 - ~~Heading styles~~
 - ~~move to typography component~~
-- Badges
+- ~~Badges~~
 - ~~Text color~~
+- move picture out of card
+- hide/show elements of card
+- Links

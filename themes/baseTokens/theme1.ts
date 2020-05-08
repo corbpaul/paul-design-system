@@ -1,4 +1,5 @@
 import { merge } from "lodash";
+import { rgba } from "polished";
 import { DeepPartial } from "utility-types";
 import { ITreatTokens } from "../makeTheme";
 
@@ -17,7 +18,10 @@ export const makeTokens = ({
 }: IMakeTokensOptions): ITreatTokens => {
   const black = "#0a1633";
   const critical = "#ff4e36";
+  const focus = rgba("#1e90ff", 0.7);
   const info = "#1e468c";
+  const link = "#2765cf";
+  const linkVisited = "#733d90";
   const neutral = "#747474";
   const secondary = "#707070";
   const white = "#fff";
@@ -31,8 +35,18 @@ export const makeTokens = ({
       desktop: 992,
     },
     border: {
+      color: {
+        standard: "#d6d6d6",
+        critical,
+        focus,
+        info,
+      },
       radius: {
         standard: 2,
+      },
+      width: {
+        standard: 1,
+        large: 2,
       },
     },
     color: {
@@ -47,6 +61,8 @@ export const makeTokens = ({
       foreground: {
         critical,
         info,
+        link,
+        linkVisited,
         neutral: black,
         neutralInverted: white,
         secondary,
@@ -55,6 +71,14 @@ export const makeTokens = ({
     grid: 4,
     image: {
       thumb: 66.67,
+    },
+    shadows: {
+      small:
+        "0 2px 4px 0px rgba(28,28,28,.1), 0 2px 2px -2px rgba(28,28,28,.1), 0 4px 4px -4px rgba(28,28,28,.2)",
+      medium:
+        "0 2px 4px 0px rgba(28,28,28,.1), 0 8px 8px -4px rgba(28,28,28,.1), 0 12px 12px -8px rgba(28,28,28,.2)",
+      large:
+        "0 2px 4px 0px rgba(28,28,28,.1), 0 12px 12px -4px rgba(28,28,28,.1), 0 20px 20px -12px rgba(28,28,28,.2)",
     },
     space: {
       gutter: 6,
@@ -67,6 +91,13 @@ export const makeTokens = ({
       xxlarge: 24,
     },
     touchableSize: 12,
+    transforms: {
+      touchable: "scale(0.95)",
+    },
+    transitions: {
+      fast: "transform .125s ease, opacity .125s ease",
+      touchable: "transform 0.2s cubic-bezier(0.02, 1.505, 0.745, 1.235)",
+    },
     typography: {
       capHeightScale: 0.6,
       descenderHeightScale: 0.165,
@@ -79,7 +110,7 @@ export const makeTokens = ({
       },
       heading: {
         level: {
-          1: {
+          "1": {
             mobile: {
               size: 28,
               rows: 9,
@@ -89,7 +120,7 @@ export const makeTokens = ({
               rows: 11,
             },
           },
-          2: {
+          "2": {
             mobile: {
               size: 21,
               rows: 8,
@@ -99,7 +130,7 @@ export const makeTokens = ({
               rows: 9,
             },
           },
-          3: {
+          "3": {
             mobile: {
               size: 21,
               rows: 7,
@@ -109,7 +140,7 @@ export const makeTokens = ({
               rows: 7,
             },
           },
-          4: {
+          "4": {
             mobile: {
               size: 18,
               rows: 7,

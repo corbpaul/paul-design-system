@@ -26,7 +26,7 @@ export const makeThemeUtils = (tokens: RequiredTokens) => {
     desktop: makeMediaQuery("desktop"),
   };
 
-  const resposiveStyle = ({
+  const responsiveStyle = ({
     mobile,
     tablet,
     desktop,
@@ -55,5 +55,5 @@ export const makeThemeUtils = (tokens: RequiredTokens) => {
     };
   };
 
-  return { resposiveStyle };
+  return { responsiveStyle };
 };

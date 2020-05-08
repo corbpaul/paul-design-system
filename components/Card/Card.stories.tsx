@@ -1,9 +1,10 @@
 import React from "react";
 import { Badge } from "../Badge/Badge";
 import { Box } from "../Box/Box";
-import { Heading } from "../Heading/Heading";
+import { Heading } from "../full/Heading/Heading";
 import { Stack } from "../Stack/Stack";
 import { Text } from "../Text/Text";
+import { TextLink } from "../TextLink/TextLink";
 import { Card } from "./Card";
 
 export default {
@@ -16,7 +17,7 @@ export const CardContent = () => (
     <Stack space="gutter">
       <Box overflow="hidden" position="relative" image="thumb">
         <Box
-          src="https://images.unsplash.com/photo-1588614380684-f694487a18f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1648&q=80"
+          src="https://images.unsplash.com/photo-1510486102594-9551be1c76d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
           component="img"
           position="absolute"
           top={0}
@@ -26,12 +27,14 @@ export const CardContent = () => (
           objectFit="cover"
         />
       </Box>
-      <Badge type="info">Showbiz</Badge>
-      <Heading level={3}>
+      <Text size="small" textTransform="uppercase">
+        <TextLink href="http://google.com">Showbiz</TextLink>
+      </Text>
+      <Heading level="3">
         Emily Blunt: "It's about human beings and how they're affected by a
         crisis"
       </Heading>
-      <Text color="secondary">
+      <Text color="secondary" size="small">
         Now postponed because of coronavirus, A Quiet Place 2 explores a world
         untethered by fear. It's star discusses parenthood, in film and real
         life, and her terror of doing SNL.

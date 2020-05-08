@@ -1,10 +1,11 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useContext, useMemo } from "react";
 
-import { Box, IBoxProps } from "../Box/Box";
+import { Box, IBoxProps } from "../full/Box/Box";
 import {
   IUseTextStylesProps,
   useTextStyles,
 } from "../Typography/useTypographyStyles";
+import TextContext from "./TextContext";
 
 export interface ITextProps extends Pick<IBoxProps, "component"> {
   baseline?: IUseTextStylesProps["baseline"];
@@ -32,9 +33,31 @@ export const Text = ({
     weight,
   });
 
+  const textContextValue = useMemo(
+    () => ({
+      color,
+      size,
+      weight,
+      baseline,
+    }),
+    [color, size, weight, baseline],
+  );
+
+  if (process.env.NODE_ENV !== "production") {
+    const inText = useContext(TextContext);
+
+    if (inText) {
+      throw new Error(
+        "Text components should not be nested within each other.",
+      );
+    }
+  }
+
   return (
-    <Box className={textStyles} component={component} display="block">
-      {children}
-    </Box>
+    <TextContext.Provider value={textContextValue}>
+      <Box className={textStyles} component={component} display="block">
+        {children}
+      </Box>
+    </TextContext.Provider>
   );
 };

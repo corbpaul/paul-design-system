@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { Box } from "../Box/Box";
+import { Box } from "../full/Box/Box";
 
 export interface ICardProps {
   children?: ReactNode;

@@ -90,16 +90,16 @@ const displayRules = {
   flex: "flex",
 };
 export const display = styleMap(mapToStyleProperty(displayRules, "display"));
-export const displayTablet = styleMap(({ utils: { resposiveStyle } }) =>
+export const displayTablet = styleMap(({ utils: { responsiveStyle } }) =>
   mapToStyleProperty(displayRules, "display", (value, propertyName) =>
-    resposiveStyle({
+    responsiveStyle({
       tablet: { [propertyName]: value },
     }),
   ),
 );
-export const displayDesktop = styleMap(({ utils: { resposiveStyle } }) =>
+export const displayDesktop = styleMap(({ utils: { responsiveStyle } }) =>
   mapToStyleProperty(displayRules, "display", (value, propertyName) =>
-    resposiveStyle({
+    responsiveStyle({
       desktop: { [propertyName]: value },
     }),
   ),

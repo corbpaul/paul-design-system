@@ -1,11 +1,14 @@
 import classnames from "classnames";
+import { useContext } from "react";
 import { useStyles } from "react-treat";
 
 import {
   useBackground,
   useBackgroundLightness,
-} from "../Box/BackgroundContext";
-import { IUseBoxStylesProps } from "../Box/useBoxStyles";
+} from "../full/Box/BackgroundContext";
+import { IUseBoxStylesProps } from "../full/Box/useBoxStyles";
+import TextLinkRendererContext from "../TextLinkRenderer/TextLinkRendererContext";
+
 import * as styleRefs from "./Typography.treat";
 
 type TextColor = keyof typeof styleRefs.color | "neutral";
@@ -32,6 +35,13 @@ export const useTextColor = ({
 
   return styles.invertableColor.neutral[backgroundLightness];
 };
+
+export function useTextWeight(weight: keyof typeof styleRefs.fontWeight) {
+  const styles = useStyles(styleRefs);
+  const inTextLinkRenderer = useContext(TextLinkRendererContext);
+
+  return inTextLinkRenderer ? undefined : styles.fontWeight[weight];
+}
 
 export interface IUseTextStylesProps {
   backgroundContext?: IUseBoxStylesProps["background"];
@@ -91,3 +101,11 @@ export const useHeadingStyles = ({
     baseline ? styles.heading[level].cropFirstLine : null,
   );
 };
+
+export function useTouchableSpace(size: keyof typeof styleRefs.touchable) {
+  return useStyles(styleRefs).touchable[size];
+}
+
+export function useTruncate() {
+  return useStyles(styleRefs).truncate;
+}

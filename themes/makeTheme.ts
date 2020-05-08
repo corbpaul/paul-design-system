@@ -22,8 +22,18 @@ export interface ITreatTokens {
   displayName: string;
   breakpoint: Record<Breakpoint, number>;
   border: {
+    color: {
+      standard: string;
+      critical: string;
+      focus: string;
+      info: string;
+    };
     radius: {
       standard: number;
+    };
+    width: {
+      standard: number;
+      large: number;
     };
   };
   color: {
@@ -38,6 +48,8 @@ export interface ITreatTokens {
     foreground: {
       critical: string;
       info: string;
+      link: string;
+      linkVisited: string;
       neutral: string;
       neutralInverted: string;
       secondary: string;
@@ -46,6 +58,11 @@ export interface ITreatTokens {
   grid: number;
   image: {
     thumb: number;
+  };
+  shadows: {
+    small: string;
+    medium: string;
+    large: string;
   };
   space: {
     gutter: number;
@@ -58,6 +75,13 @@ export interface ITreatTokens {
     xxlarge: number;
   };
   touchableSize: number;
+  transforms: {
+    touchable: string;
+  };
+  transitions: {
+    fast: string;
+    touchable: string;
+  };
   typography: {
     capHeightScale: number;
     descenderHeightScale: number;

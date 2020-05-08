@@ -52,15 +52,15 @@ const makeTypographyRules = (
   );
 
   return {
-    base: utils.resposiveStyle({
+    base: utils.responsiveStyle({
       mobile: mobile.base,
       tablet: tablet.base,
     }),
-    baseline: utils.resposiveStyle({
+    baseline: utils.responsiveStyle({
       mobile: mobile.baseline,
       tablet: tablet.baseline,
     }),
-    cropFirstLine: utils.resposiveStyle({
+    cropFirstLine: utils.responsiveStyle({
       mobile: mobile.cropFirstLine,
       tablet: tablet.cropFirstLine,
     }),
@@ -83,16 +83,16 @@ export const text = {
 };
 
 export const heading = {
-  1: styleMap((theme) =>
+  "1": styleMap((theme) =>
     makeTypographyRules(theme.typography.heading.level["1"], theme),
   ),
-  2: styleMap((theme) =>
+  "2": styleMap((theme) =>
     makeTypographyRules(theme.typography.heading.level["2"], theme),
   ),
-  3: styleMap((theme) =>
+  "3": styleMap((theme) =>
     makeTypographyRules(theme.typography.heading.level["3"], theme),
   ),
-  4: styleMap((theme) =>
+  "4": styleMap((theme) =>
     makeTypographyRules(theme.typography.heading.level["4"], theme),
   ),
 };
@@ -135,3 +135,33 @@ const textTransformRules = {
 export const textTransform = styleMap(
   mapToStyleProperty(textTransformRules, "textTransform"),
 );
+
+const makeTouchableSpacing = (touchableHeight: number, textHeight: number) => {
+  const space = (touchableHeight - textHeight) / 2;
+
+  return {
+    paddingTop: space,
+    paddingBottom: space,
+  };
+};
+
+export const touchable = styleMap(
+  ({ grid, typography, touchableSize, utils }) =>
+    mapValues(typography.text, (textDefinition) =>
+      utils.responsiveStyle({
+        mobile: makeTouchableSpacing(
+          grid * touchableSize,
+          grid * textDefinition.mobile.rows,
+        ),
+        tablet: makeTouchableSpacing(
+          grid * touchableSize,
+          grid * textDefinition.tablet.rows,
+        ),
+      }),
+    ),
+);
+
+export const truncate = style({
+  whiteSpace: "nowrap",
+  textOverflow: "ellipsis",
+});

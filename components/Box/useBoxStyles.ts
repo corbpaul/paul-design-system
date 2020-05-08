@@ -92,6 +92,7 @@ export const useBoxStyles = ({
     component !== null && resetStyles.base,
     component !== null &&
       resetStyles.element[component as keyof typeof resetStyleRefs.element],
+
     resolvedMarginTop !== undefined &&
       resolveResponsiveProp(
         resolvedMarginTop,
