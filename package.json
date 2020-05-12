@@ -5,6 +5,9 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
     "@storybook/addon-a11y": "^5.3.18",
     "@storybook/addon-viewport": "^5.3.18",
     "@storybook/addons": "^5.3.17",
@@ -15,6 +18,7 @@
     "@types/lodash": "^4.14.149",
     "@types/react": "^16.9.25",
     "babel-loader": "^8.1.0",
+    "playroom": "^0.17.3",
     "prettier": "^2.0.2",
     "prettier-tslint": "^0.4.2",
     "react-treat": "^1.2.4",
@@ -22,11 +26,14 @@
     "ts-loader": "^7.0.3",
     "typescript": "^3.8.3",
     "utility-types": "^3.10.0",
-    "webfontloader": "^1.6.28"
+    "webfontloader": "^1.6.28",
+    "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test:lint": "tslint --project tsconfig.json"
+    "test:lint": "tslint --project tsconfig.json",
+    "playroom:start": "playroom start",
+    "playroom:build": "playroom build"
   }
 }
