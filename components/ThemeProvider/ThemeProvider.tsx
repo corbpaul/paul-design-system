@@ -1,4 +1,10 @@
-import React, { AnchorHTMLAttributes, ComponentType, createContext, ReactNode, useContext } from "react";
+import React, {
+  AnchorHTMLAttributes,
+  ComponentType,
+  createContext,
+  ReactNode,
+  useContext,
+} from "react";
 import { TreatProvider } from "react-treat";
 
 import { Theme } from "../../themes/Theme";
@@ -26,10 +32,16 @@ export const useLinkComponent = () => useContext(LinkComponentContext);
 export interface IThemeProviderProps {
   theme: Theme;
   children: ReactNode;
+  styleBody?: boolean;
   linkComponent?: LinkComponent;
 }
 
-export const ThemeProvider = ({ theme, children, linkComponent }: IThemeProviderProps) => {
+export const ThemeProvider = ({
+  theme,
+  children,
+  styleBody = true,
+  linkComponent,
+}: IThemeProviderProps) => {
   const linkComponentFromContext = useLinkComponent();
 
   return (
@@ -38,6 +50,9 @@ export const ThemeProvider = ({ theme, children, linkComponent }: IThemeProvider
         <LinkComponentContext.Provider
           value={linkComponent || linkComponentFromContext}
         >
+          {styleBody ? (
+            <style type="text/css">{`body{margin:0;padding:0;background:${theme.background}}`}</style>
+          ) : null}
           {children}
         </LinkComponentContext.Provider>
       </TreatProvider>

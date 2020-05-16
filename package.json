@@ -21,6 +21,7 @@
     "playroom": "^0.17.3",
     "prettier": "^2.0.2",
     "prettier-tslint": "^0.4.2",
+    "react-keyed-flatten-children": "^1.2.0",
     "react-treat": "^1.2.4",
     "treat": "^1.2.4",
     "ts-loader": "^7.0.3",
