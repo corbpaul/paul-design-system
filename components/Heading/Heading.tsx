@@ -3,6 +3,7 @@ import { Box, IBoxProps } from "../Box/Box";
 import {
   HeadingLevel,
   HeadingWeight,
+  IUseHeadingStyleProps,
   useHeadingStyles,
 } from "../Typography/useTypographyStyles";
 import HeadingContext from "./HeadingContext";
@@ -22,6 +23,7 @@ export interface IHeadingProps {
   component?: IBoxProps["component"];
   id?: string;
   truncate?: boolean;
+  textTransform?: IUseHeadingStyleProps["textTransform"];
 }
 
 export const Heading = ({
@@ -31,8 +33,14 @@ export const Heading = ({
   children,
   align,
   id,
+  textTransform,
 }: IHeadingProps) => {
-  const headingStyles = useHeadingStyles({ baseline: true, level, weight });
+  const headingStyles = useHeadingStyles({
+    baseline: true,
+    level,
+    weight,
+    textTransform,
+  });
 
   return (
     <HeadingContext.Provider value={true}>

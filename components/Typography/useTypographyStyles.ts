@@ -77,17 +77,19 @@ export const useTextStyles = ({
 export type HeadingLevel = keyof typeof styleRefs.heading;
 export type HeadingWeight = "regular" | "weak";
 
-interface IUseHeadingStyleProps {
+export interface IUseHeadingStyleProps {
   baseline: boolean;
   color?: keyof typeof styleRefs.color;
   level: HeadingLevel;
   weight?: HeadingWeight;
+  textTransform?: keyof typeof styleRefs.textTransform;
 }
 
 export const useHeadingStyles = ({
   baseline,
   level,
   weight = "regular",
+  textTransform,
 }: IUseHeadingStyleProps) => {
   const styles = useStyles(styleRefs);
   const textColor = useTextColor({ color: "neutral" });
@@ -99,6 +101,7 @@ export const useHeadingStyles = ({
     styles.headingWeight[weight],
     baseline ? styles.heading[level].baseline : null,
     baseline ? styles.heading[level].cropFirstLine : null,
+    textTransform ? styles.textTransform[textTransform] : null,
   );
 };
 

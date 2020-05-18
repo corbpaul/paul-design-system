@@ -12,20 +12,22 @@ export const normaliseResponsiveProp = <Keys extends string | number>(
 
   if ("length" in value) {
     const { length } = value;
-    const [mobileValue, tabletValue] = value;
 
-    switch (+length) {
-      case 1:
-        return [mobileValue, mobileValue, mobileValue];
-      case 2:
-        return [mobileValue, tabletValue, tabletValue];
-      case 3:
-        return value as Readonly<[Keys, Keys, Keys]>;
-      default:
-        throw new Error(
-          `Invalid responsive prop length: ${JSON.stringify(value)}`,
-        );
+    if (length === 2) {
+      const [mobileValue, tabletValue] = value;
+      return [mobileValue, tabletValue, tabletValue];
     }
+
+    if (length === 3) {
+      return value as Readonly<[Keys, Keys, Keys]>;
+    }
+
+    if (length === 1) {
+      const [mobileValue] = value;
+      return [mobileValue, mobileValue, mobileValue];
+    }
+
+    throw new Error(`Invalid responsive prop length: ${JSON.stringify(value)}`);
   }
 
   throw new Error(`Invalid responsive prop value: ${JSON.stringify(value)}`);

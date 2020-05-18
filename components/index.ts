@@ -1,4 +1,7 @@
+export { Box } from "./Box/Box";
 export { Card } from "./Card/Card";
+export { Column } from "./Column/Column";
+export { Columns } from "./Columns/Columns";
 export { Heading } from "./Heading/Heading";
 export { Image } from "./Image/Image";
 export { Link } from "./Link/Link";

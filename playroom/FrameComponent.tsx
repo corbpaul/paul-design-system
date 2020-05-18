@@ -1,4 +1,5 @@
 import React, { Fragment, ReactNode } from "react";
+import WebFont from "webfontloader";
 import { ThemeProvider } from "../components";
 import { Theme } from "../themes/Theme";
 
@@ -9,8 +10,22 @@ interface IFrameProps {
   children: ReactNode;
 }
 
-export default ({ theme, children }: IFrameProps) => (
-  <ThemeProvider theme={theme}>
-    <Fragment>{children}</Fragment>
-  </ThemeProvider>
-);
+const loadWebFont = (font: string, weights: number[]) => {
+  WebFont.load({
+    google: {
+      families: [`${font}:${weights.sort().join(",")}`],
+    },
+  });
+};
+
+export default ({ theme, children }: IFrameProps) => {
+  theme.webFonts.map(({ font, weights }) => {
+    loadWebFont(font, weights);
+  });
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Fragment>{children}</Fragment>
+    </ThemeProvider>
+  );
+};

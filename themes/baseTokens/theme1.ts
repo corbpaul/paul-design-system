@@ -52,7 +52,7 @@ export const makeTokens = ({
     color: {
       brand,
       background: {
-        body: "#eee",
+        body: white,
         card: white,
         critical,
         info,
