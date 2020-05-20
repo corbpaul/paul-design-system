@@ -2,18 +2,18 @@ import React, { ReactNode, useContext, useMemo } from "react";
 
 import { Box, BoxProps } from "../Box/Box";
 import {
-  IUseTextStylesProps,
+  UseTextStylesProps,
   useTextStyles,
-} from "../Typography/useTypographyStyles";
+} from "../../hooks/useTypographyStyles/useTypographyStyles";
 import TextContext from "./TextContext";
 
 export interface TextProps extends Pick<BoxProps, "component"> {
-  baseline?: IUseTextStylesProps["baseline"];
+  baseline?: UseTextStylesProps["baseline"];
   children?: ReactNode;
-  color?: IUseTextStylesProps["color"];
-  size?: IUseTextStylesProps["size"];
-  textTransform?: IUseTextStylesProps["textTransform"];
-  weight?: IUseTextStylesProps["weight"];
+  color?: UseTextStylesProps["color"];
+  size?: UseTextStylesProps["size"];
+  textTransform?: UseTextStylesProps["textTransform"];
+  weight?: UseTextStylesProps["weight"];
 }
 
 export const Text = ({

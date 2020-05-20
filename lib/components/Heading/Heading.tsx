@@ -5,7 +5,7 @@ import {
   HeadingWeight,
   UseHeadingStyleProps,
   useHeadingStyles,
-} from "../Typography/useTypographyStyles";
+} from "../../hooks/useTypographyStyles/useTypographyStyles";
 import HeadingContext from "./HeadingContext";
 
 const resolveDefaultComponent = {

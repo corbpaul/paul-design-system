@@ -1,6 +1,6 @@
 import { createContext } from "react";
-import { IUseTextStylesProps } from "../Typography/useTypographyStyles";
+import { UseTextStylesProps } from "../../hooks/useTypographyStyles/useTypographyStyles";
 
-const textContext = createContext<IUseTextStylesProps | false>(false);
+const textContext = createContext<UseTextStylesProps | false>(false);
 
 export default textContext;

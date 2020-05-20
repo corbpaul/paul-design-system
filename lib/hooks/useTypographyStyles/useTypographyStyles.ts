@@ -5,11 +5,11 @@ import { useStyles } from "react-treat";
 import {
   useBackground,
   useBackgroundLightness,
-} from "../Box/BackgroundContext";
-import { UseBoxStylesProps } from "../Box/useBoxStyles";
-import TextLinkRendererContext from "../TextLinkRenderer/TextLinkRendererContext";
+} from "../../components/Box/BackgroundContext";
+import { UseBoxStylesProps } from "../../components/Box/useBoxStyles";
+import TextLinkRendererContext from "../../components/TextLinkRenderer/TextLinkRendererContext";
 
-import * as styleRefs from "./Typography.treat";
+import * as styleRefs from "./TypographyStyles.treat";
 
 type TextColor = keyof typeof styleRefs.color | "neutral";
 

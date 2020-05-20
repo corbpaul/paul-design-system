@@ -1,5 +1,14 @@
 module.exports = {
   root: true,
+  env: {
+    browser: true,
+    node: true,
+  },
+  settings: {
+    react: {
+      version: ">16",
+    },
+  },
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint"],
   extends: [
@@ -13,5 +22,5 @@ module.exports = {
     "@typescript-eslint/no-empty-interface": 0,
     "@typescript-eslint/no-non-null-assertion": 0,
     "@typescript-eslint/no-unused-vars": 0,
-  }
+  },
 };

@@ -5,7 +5,10 @@ import { useBackground } from "../Box/BackgroundContext";
 import { useBoxStyles } from "../Box/useBoxStyles";
 import HeadingContext from "../Heading/HeadingContext";
 import TextContext from "../Text/TextContext";
-import { useTextColor, useTextWeight } from "../Typography/useTypographyStyles";
+import {
+  useTextColor,
+  useTextWeight,
+} from "../../hooks/useTypographyStyles/useTypographyStyles";
 import { useVirtualTouchable } from "../VirtualTouchable/useVirtualTouchable";
 import * as styleRefs from "./TextLinkRenderer.treat";
 import TextLinkRendererContext from "./TextLinkRendererContext";

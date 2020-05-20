@@ -3,12 +3,12 @@ import flattenChildren from "react-keyed-flatten-children";
 import { useStyles } from "react-treat";
 
 import { Box, BoxProps } from "../Box/Box";
-import { Divider, IDividerProps } from "../Divider/Divider";
-import { Hidden, IHiddenProps } from "../Hidden/Hidden";
+import { Divider, DividerProps } from "../Divider/Divider";
+import { Hidden, HiddenProps } from "../Hidden/Hidden";
 import * as hiddenStyleRefs from "../Hidden/Hidden.treat";
 
 import { useNegativeMarginTop } from "../hooks/useNegativeMargin/useNegativeMarginTop";
-import { Align, alignToFlexAlign } from "../utils/align";
+import { Align, alignToFlexAlign } from "../../utils/align";
 import {
   mapResponsiveProp,
   normaliseResponsiveProp,
@@ -44,10 +44,10 @@ const validStackComponents = ["div", "ol", "ul"] as const;
 
 const extractHiddenPropsFromChild = (child: ReactNode) =>
   child && typeof child === "object" && "type" in child && child.type === Hidden
-    ? (child.props as IHiddenProps)
+    ? (child.props as HiddenProps)
     : null;
 
-const resolveHiddenProps = ({ screen, above, below }: IHiddenProps) =>
+const resolveHiddenProps = ({ screen, above, below }: HiddenProps) =>
   screen
     ? ([true, true, true] as const)
     : resolveResponsiveRangeProps({
@@ -84,7 +84,7 @@ export interface StackProps {
   children: ReactNode;
   space: BoxProps["paddingTop"];
   align?: ResponsiveProp<Align>;
-  dividers?: boolean | IDividerProps["weight"];
+  dividers?: boolean | DividerProps["weight"];
 }
 
 export const Stack = ({
@@ -119,7 +119,7 @@ export const Stack = ({
           process.env.NODE_ENV !== "production" &&
           typeof child === "object" &&
           child.type === Hidden &&
-          (child.props as IHiddenProps).inline !== undefined
+          (child.props as HiddenProps).inline !== undefined
         ) {
           throw new Error(
             'The "inline" prop is invalid on Hidden elements within a Stack',
