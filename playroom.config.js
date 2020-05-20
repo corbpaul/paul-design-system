@@ -5,21 +5,21 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TreatPlugin = require('treat/webpack-plugin');
 
 const include = [
-  path.join(__dirname, './components'),
-  path.join(__dirname, './playroom'),
-  path.join(__dirname, './reset'),
-  path.join(__dirname, './themes'),
-  path.join(__dirname, './utils'),
+  path.join(__dirname, './lib/components'),
+  path.join(__dirname, './lib/playroom'),
+  path.join(__dirname, './lib/reset'),
+  path.join(__dirname, './lib/themes'),
+  path.join(__dirname, '.lib//utils'),
 ];
 
 module.exports = {
-  components: './components/index.ts',
+  components: './lib/components/index.ts',
   outputPath: './site/dist/playroom',
 
   // Optional:
   title: 'Paul Design System',
-  themes: './themes/index.ts',
-  frameComponent: './playroom/FrameComponent.tsx',
+  themes: './lib/themes/index.ts',
+  frameComponent: './lib/playroom/FrameComponent.tsx',
   widths: [320, 768, 1024, 1400],
   port: 9000,
   webpackConfig: () => ({

@@ -18,9 +18,17 @@
     "@types/lodash": "^4.14.149",
     "@types/react": "^16.9.25",
     "@types/webfontloader": "^1.6.30",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
     "babel-loader": "^8.1.0",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsdoc": "^25.4.2",
+    "eslint-plugin-prefer-arrow": "^1.2.1",
     "playroom": "^0.17.3",
-    "prettier": "^2.0.2",
+    "prettier": "^2.0.5",
     "prettier-tslint": "^0.4.2",
     "react-keyed-flatten-children": "^1.2.0",
     "react-treat": "^1.2.4",
@@ -34,7 +42,7 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test:lint": "tslint --project tsconfig.json",
+    "test:lint": "eslint ./lib",
     "playroom:start": "playroom start",
     "playroom:build": "playroom build"
   }
