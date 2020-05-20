@@ -3,6 +3,7 @@ export { Card } from "./Card/Card";
 export { Column } from "./Column/Column";
 export { Columns } from "./Columns/Columns";
 export { Heading } from "./Heading/Heading";
+export { Hidden } from "./Hidden/Hidden";
 export { Image } from "./Image/Image";
 export { Link } from "./Link/Link";
 export { Stack } from "./Stack/Stack";
