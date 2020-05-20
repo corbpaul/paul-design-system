@@ -9,7 +9,7 @@ import {
   normaliseResponsiveProp,
   resolveResponsiveProp,
   ResponsiveProp,
-} from "../utils/responsiveProp";
+} from "../../utils/responsiveProp";
 
 import * as styleRefs from "./Tiles.treat";
 

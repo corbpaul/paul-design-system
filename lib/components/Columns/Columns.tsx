@@ -2,17 +2,17 @@ import React, { Children, createContext, ReactElement, useMemo } from "react";
 
 import { Box } from "../Box/Box";
 import { ResponsiveSpace, Space } from "../Box/useBoxStyles";
-import { IColumnProps } from "../Column/Column";
+import { ColumnProps } from "../Column/Column";
 
 import {
   normaliseResponsiveProp,
   resolveResponsiveProp,
   ResponsiveProp,
-} from "../utils/responsiveProp";
+} from "../../utils/responsiveProp";
 import {
   ResponsiveRangeProps,
   resolveResponsiveRangeProps,
-} from "../utils/responsiveRangeProps";
+} from "../../utils/responsiveRangeProps";
 
 interface ColumnsContextValue {
   collapseMobile: boolean;
@@ -32,8 +32,8 @@ export const ColumnsContext = createContext<ColumnsContextValue>({
 
 export interface ColumsProps {
   children:
-    | Array<ReactElement<IColumnProps> | null>
-    | ReactElement<IColumnProps>
+    | Array<ReactElement<ColumnProps> | null>
+    | ReactElement<ColumnProps>
     | null;
   collapseBelow?: ResponsiveRangeProps["below"];
   reverse?: boolean;

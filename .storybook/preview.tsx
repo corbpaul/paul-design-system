@@ -2,10 +2,10 @@ import { withA11y } from "@storybook/addon-a11y";
 import { addDecorator } from "@storybook/react";
 import React from "react";
 
-import { ThemeProvider } from "../components/ThemeProvider/ThemeProvider";
-import { theme1 } from "../themes";
+import { ThemeProvider } from "../lib/components/ThemeProvider/ThemeProvider";
+import { theme1 } from "../lib/themes";
 
-import "../reset";
+import "../lib/reset";
 
 addDecorator((storyFn) => (
   <ThemeProvider theme={theme1}>

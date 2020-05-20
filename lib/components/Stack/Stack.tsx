@@ -7,14 +7,14 @@ import { Divider, DividerProps } from "../Divider/Divider";
 import { Hidden, HiddenProps } from "../Hidden/Hidden";
 import * as hiddenStyleRefs from "../Hidden/Hidden.treat";
 
-import { useNegativeMarginTop } from "../hooks/useNegativeMargin/useNegativeMarginTop";
+import { useNegativeMarginTop } from "../../hooks/useNegativeMargin/useNegativeMarginTop";
 import { Align, alignToFlexAlign } from "../../utils/align";
 import {
   mapResponsiveProp,
   normaliseResponsiveProp,
   ResponsiveProp,
-} from "../utils/responsiveProp";
-import { resolveResponsiveRangeProps } from "../utils/responsiveRangeProps";
+} from "../../utils/responsiveProp";
+import { resolveResponsiveRangeProps } from "../../utils/responsiveRangeProps";
 
 const alignToDisplay = {
   left: "block",

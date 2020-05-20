@@ -2,7 +2,7 @@ import { Properties } from "csstype";
 import { omit } from "lodash";
 import { style, styleMap } from "treat";
 import { Theme } from "treat/theme";
-import { mapToStyleProperty } from "../utils/mapToStyleProperty";
+import { mapToStyleProperty } from "../../utils/mapToStyleProperty";
 
 const spaceMapToCss = (
   theme: Theme,

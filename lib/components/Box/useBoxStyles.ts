@@ -4,7 +4,10 @@ import { useStyles } from "react-treat";
 import { Theme } from "treat/theme";
 
 import * as resetStyleRefs from "../../reset/reset.treat";
-import { resolveResponsiveProp, ResponsiveProp } from "../utils/responsiveProp";
+import {
+  resolveResponsiveProp,
+  ResponsiveProp,
+} from "../../utils/responsiveProp";
 import * as styleRefs from "./Box.treat";
 
 export type Image = keyof Theme["image"] | "none";

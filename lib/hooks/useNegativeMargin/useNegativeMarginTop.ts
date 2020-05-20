@@ -4,7 +4,7 @@ import { useStyles } from "react-treat";
 import {
   resolveResponsiveProp,
   ResponsiveProp,
-} from "../../components/utils/responsiveProp";
+} from "../../utils/responsiveProp";
 
 import * as styleRefs from "./NegativeMarginTop.treat";
 

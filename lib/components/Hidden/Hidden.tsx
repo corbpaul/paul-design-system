@@ -5,7 +5,7 @@ import { Box } from "../Box/Box";
 import {
   ResponsiveRangeProps,
   resolveResponsiveRangeProps,
-} from "../utils/responsiveRangeProps";
+} from "../../utils/responsiveRangeProps";
 
 import * as styleRefs from "./Hidden.treat";
 

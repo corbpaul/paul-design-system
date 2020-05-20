@@ -1,13 +1,13 @@
 import React from "react";
 import { useBoxStyles } from "../Box/useBoxStyles";
 import {
-  ILinkComponentProps,
+  LinkComponentProps,
   useLinkComponent,
 } from "../ThemeProvider/ThemeProvider";
 
-export type LinkProps = ILinkComponentProps;
+export type LinkProps = LinkComponentProps;
 
-export const Link = ({ href, className, ...restProps }: ILinkComponentProps) => {
+export const Link = ({ href, className, ...restProps }: LinkComponentProps) => {
   const LinkComponent = useLinkComponent();
 
   return (
